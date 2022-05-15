@@ -1,4 +1,2 @@
-abcd
-ABCD
-hello
-123
+User-agent: *
+Disallow: /__esa
