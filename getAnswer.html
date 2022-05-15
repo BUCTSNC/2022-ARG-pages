@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index_files/newStyle.css">
+    <link rel="stylesheet" type="text/css" href="index_files/nav.css">
+    <link rel="icon" href="img/logo_1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
+    <title>Day 1</title>
+</head>
+<script src="./js/jquery.js"></script>
+<body>
+    <header>
+        <img class="logo" src="index_files/buctlogo.png" alt="logo">
+        <img class="logo" src="img/snclogo.png" alt="logo">
+    </header>
+    <div class="answer_div fade_in_section is_visible">
+        <form name="answer_form" method="post" class="answer_form">
+            <table>
+                <tr>
+                    <td>用户名：</td>
+                    <td><input id="nickname" name="nickname" type="text" placeholder="注册过用户名" autocomplete="off" class="text_area"></td>
+                    <td>没有注册？<a href="register.html">注册</a></td>
+                </tr>
+                <tr>
+                    <td>电话号码/微信号：</td>
+                    <td><input id="contact" name="contact" type="text" placeholder="注册过的电话号码/微信号" autocomplete="off" class="text_area"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>获得的答案：</td>
+                    <td><input id="answer_q1" name="answer_q1" type="text" placeholder="Day 1答案" autocomplete="off" class="text_area"></td>
+                    <td>没有找到？<a href="index.html">返回</a> </td>
+                </tr>
+
+            </table>
+            <div class="get_answer_button">
+                <button class="gab" type="reset" onclick="">重新输入</button>
+                <button class="gab" type="button" onclick="submits()">提交答案</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function check(username,contact,answer_q1) {
+        if(username.length < 3 || contact.length < 8 || answer_q1.length < 1){
+            return false
+        }
+        return true
+    }
+    function submits() {
+        var nickname = document.getElementById("nickname")
+        var contact = document.getElementById("contact")
+        var answer_q1 = document.getElementById("answer_q1")
+        if(check(nickname.value,contact.value,answer_q1.value)==true){
+            $.ajax({
+                url:"http://127.0.0.1:8000/ARG/day01",
+                method:"post",
+                async:"false",
+                data:{"nickname":nickname.value,"contact":contact.value,"answer_q1":answer_q1.value},
+                dataType:"json",
+                contentType:"application/x-www-form-urlencoded",
+                success(result){
+                    nickname.value = ""
+                    contact.value = ""
+                    answer_q1.value = ""
+                    window.alert(result.msg)
+                    if(result.data.solveStatus==1){
+                        window.open("index.html","_self");  //修改为下一天的地址
+                    }
+                },
+                error(msg){
+                    console.log("error"+msg)
+                    window.alert("活动太火爆了，请稍后再试")
+                }
+            })
+        }else{
+            alert("用户名、联系方式格式有误或答案为空，请重新输入")
+        }
+    }
+</script>
+</html>

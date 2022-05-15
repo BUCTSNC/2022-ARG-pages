@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index_files/newStyle.css">
+    <link rel="stylesheet" type="text/css" href="index_files/nav.css">
+    <link rel="icon" href="img/logo_1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
+
+</head>
+<script src="./js/jquery.js"></script>
+<body>
+    <header>
+        <img class="logo" src="index_files/buctlogo.png" alt="logo">
+        <img class="logo" src="img/snclogo.png" alt="logo">
+    </header>
+    <div class="answer_div">
+        <form name="register_form" method="post" class="answer_form">
+            <table>
+                <tr>
+                    <td>您的用户名：</td>
+                    <td><input id="nickname" name="nickname" type="text" placeholder="请输入用户名" autocomplete="off" class="text_area"></td>
+                </tr>
+                <tr>
+                    <td>您的电话号码/微信号：</td>
+                    <td><input id="contact" name="contact" type="text" placeholder="您的电话号码/微信号" autocomplete="off" class="text_area"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: right">已经注册？<a href="getAnswer.html">答题</a></td>
+                </tr>
+            </table>
+            <div class="get_answer_button">
+                <button class="gab" type="reset" onclick="">重新输入</button>
+                <button class="gab" type="button" onclick="submits()">注册账号</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function check(username,contact) {
+        if(username.length < 3 || contact.length < 8){
+            return false
+        }
+        return true
+    }
+    function submits() {
+        var nickname = document.getElementById("nickname")
+        var contact = document.getElementById("contact")
+        if(check(nickname.value,contact.value)==true){
+            $.ajax({
+                url:"http://127.0.0.1:8000/ARG/login",
+                method:"post",
+                async:"false",
+                data:{"nickname":nickname.value,"contact":contact.value},
+                dataType:"json",
+                contentType:"application/x-www-form-urlencoded",
+                success(result){
+                    nickname.value = ""
+                    contact.value = ""
+                    console.log(result)
+                    if(result.code==200){
+                        window.open("getAnswer.html","_self");  //跳转答题界面
+                    }
+                    window.alert(result.msg)
+                },
+                error(msg){
+                    console.log("error"+msg)
+                    window.alert("活动太火爆了，请稍后再试")
+                }
+            })
+        }else{
+            alert("用户名或联系方式格式有误，请重新输入")
+        }
+    }
+
+</script>
+</html>
