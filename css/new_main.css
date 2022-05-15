@@ -1,0 +1,29 @@
+.new_main_container {
+    display: none;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: #0088A9 solid;
+    border-radius: 25px;
+    width: 70%;
+}
+
+#output {
+    margin: 3% 7% 3% 7%;
+
+}
+
+.new_content {
+    /*background-color: rgba(0, 136, 169, 1);*/
+}
+
+.code_block {
+    background-color: black !important;
+    margin: 0 5% 0 5%;
+    border-radius: 5px;
+    border: grey solid;
+    font-family: Consolas, sans-serif;
+    padding: 2%;
+    color: white;
+}

@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="index_files/newStyle.css">
     <link rel="stylesheet" type="text/css" href="index_files/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/new_main.css">
     <link rel="icon" href="img/logo_1.png" type="image/x-icon">
     <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
     <title>Day 1</title>
 </head>
 <script src="./js/jquery.js"></script>
 <body>
-    <header>
+    <header id="nav" style="display: none">
         <img class="logo" src="index_files/buctlogo.png" alt="logo">
         <img class="logo" src="img/snclogo.png" alt="logo">
     </header>
-    <div class="answer_div fade_in_section is_visible">
-        <form name="answer_form" method="post" class="answer_form">
+    <div class="answer_div" id="submit_form" style="display: none">
+        <form name="answer_form" method="post" class="answer_form" onsubmit="checkSubmit()">
             <table>
                 <tr>
                     <td>用户名：</td>
@@ -23,8 +24,8 @@
                     <td>没有注册？<a href="register.html">注册</a></td>
                 </tr>
                 <tr>
-                    <td>电话号码/微信号：</td>
-                    <td><input id="contact" name="contact" type="text" placeholder="注册过的电话号码/微信号" autocomplete="off" class="text_area"></td>
+                    <td>电话号码：</td>
+                    <td><input id="contact" name="contact" type="text" placeholder="注册过的电话号码" autocomplete="off" class="text_area"></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -40,19 +41,213 @@
             </div>
         </form>
     </div>
+
+
+
+
+
+
+
+    <!--提交后显示内容-->
+
+    <div id="new_main" style="display: none" >
+        <p class="new_content">
+            既然签到了，剩下的课对她来说就是可以摸鱼的环节了。打开长鼻象看看今天的热点新闻，打开音乐软件听听习惯的BGM，今天也是摸鱼摆烂的一天呢。<br>
+            嗯？新闻好像有点意思哦？稍微看一哈。<br>
+            “……今天的早间新闻内容主要有：上京市珊瑚区地标建筑物央湖中心发生爆炸并有重要数据集被窃取、感知网络公司对旗下产品实控表示遗憾、仿生人伦理协会对感知网络的不负责行为表示强烈谴责。暂无组织宣称对此次事件负责。”<br>
+            “搞啥子嘛！央湖中心居然爆炸了？”<br>
+            “这新闻啥都没说嘛，信息量太大了吧……自己动手，丰衣足食……”，苏柠彩一边念叨着，一边电脑上拖出一个新的窗口，开始各种尝试和连接。&nbsp;毕竟是央湖中心的电脑系统，层层的WAF做的还算非常充足，普通的黑客要绕开还是要费些力气的。具体的数据内容看不到，但是名称还是可以从文件目录判断出来的。&nbsp;百密一疏，上京的国防部忘记把文件系统的http映射关掉了！<br>
+            <br>
+
+            <div class="code_block">
+                -rw-r--r--&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;3106&nbsp;Dec&nbsp;&nbsp;5&nbsp;&nbsp;2019&nbsp;.bashrc<br>
+                drwx------&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;4096&nbsp;Feb&nbsp;&nbsp;9&nbsp;19:27&nbsp;.config/<br>
+                drwxr-xr-x&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;4096&nbsp;Jan&nbsp;23&nbsp;23:02&nbsp;.local/<br>
+                drwxr-xr-x&nbsp;1&nbsp;mod&nbsp;&nbsp;&nbsp;mod&nbsp;&nbsp;4096&nbsp;Apr&nbsp;17&nbsp;10:23&nbsp;national_dataset<br>
+            </div>
+
+            <br>
+            果然，这个national_dataset就非常值得关注呢！直接cd进去看看，然后习惯性的打出一个ll，继续看下面有什么……<br>
+            <br>
+
+            <div class="code_block">
+                drwxr-xr-x&nbsp;1&nbsp;mod&nbsp;&nbsp;mod&nbsp;&nbsp;4096&nbsp;Apr&nbsp;&nbsp;1&nbsp;16:26&nbsp;face_measurement/<br>
+                drwxr-xr-x&nbsp;1&nbsp;mod&nbsp;&nbsp;mod&nbsp;&nbsp;4096&nbsp;Apr&nbsp;&nbsp;1&nbsp;16:26&nbsp;face_microemotion/<br>
+                drwxr-xr-x&nbsp;1&nbsp;mod&nbsp;&nbsp;mod&nbsp;&nbsp;4096&nbsp;Apr&nbsp;&nbsp;1&nbsp;16:28&nbsp;face_recognize/<br>
+                drwxr-xr-x&nbsp;1&nbsp;mod&nbsp;&nbsp;mod&nbsp;&nbsp;4096&nbsp;Apr&nbsp;&nbsp;1&nbsp;16:27&nbsp;netizen_id/<br>
+            </div>
+
+            <br>
+            “什么？人脸识别？不是说好了禁止采集人脸数据的吗？泥萌怎么可以这样喂……”<br>
+            但是怀着好奇心，她还是点了下去……喔，好像真的有一些训练数据和模型……<br>
+            <br>
+
+            <div class="code_block">
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;8080862&nbsp;Mar&nbsp;21&nbsp;&nbsp;2021&nbsp;&nbsp;NameIndex.json<br>
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;2654341&nbsp;Oct&nbsp;26&nbsp;&nbsp;1985&nbsp;&nbsp;data-1.0.json<br>
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;2675994&nbsp;Oct&nbsp;26&nbsp;&nbsp;1985&nbsp;&nbsp;data-2.0.json<br>
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;2449994&nbsp;Apr&nbsp;28&nbsp;&nbsp;2021&nbsp;&nbsp;no_kv_ETRS89NO_NGO48_TIN.json<br>
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;5140752&nbsp;Nov&nbsp;23&nbsp;&nbsp;2018&nbsp;&#39;noise0_model.json&nbsp;(2).caffemodel&#39;<br>
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;5140752&nbsp;Nov&nbsp;23&nbsp;&nbsp;2018&nbsp;&nbsp;noise0_model.json.caffemodel<br>
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;5146151&nbsp;Nov&nbsp;23&nbsp;&nbsp;2018&nbsp;&#39;noise0_scale2.0x_model.json&nbsp;(2).caffemodel&#39;<br>
+                -rw-r--r--&nbsp;1&nbsp;mod&nbsp;mod&nbsp;5146151&nbsp;Nov&nbsp;23&nbsp;&nbsp;2018&nbsp;&nbsp;noise0_scale2.0x_model.json.caffemodel<br>
+                <br>
+                Error:&nbsp;network&nbsp;error&nbsp;software&nbsp;caused&nbsp;connection&nbsp;abort&nbsp;
+            </div>
+
+            <br>
+            “果然还是被发现了啊，如果被查到的话会不会被处分呢？应该不会吧，毕竟我又没有下载”<br>
+            “再说人家是最可爱的美少女喵！真的被抓到~就只好红豆泥斯密马赛啦！”<br>
+            一天就这样过去了，太阳很快落回地面，上京市的夜晚重新被霓虹所笼罩。扎眼的灯光穿透夜晚的武器照在街道上。<br>
+            雨又下起了了，淅淅沥沥的打在窗玻璃上模糊了人的视线。但这一切和苏柠彩都没有关系，她依然沉浸在她的赛博世界中，作为网络公民的一员而生活。<br>
+            未来，会有更多和她一样的人成为这个世界的公民吗？这个网络世界的准则又是怎样？我们很难思考。<br>
+            苏柠彩也放弃了思考，累了，便又爬上床休息了。<br>
+            “睡大觉喽！”<br>
+        </p>
+
+
+    </div>
+
+    <div class="new_main_container" id="output_container">
+        <div id="output">
+
+        </div>
+    </div>
+
+
+
 </body>
 <script>
-    function check(username,contact,answer_q1) {
-        if(username.length < 3 || contact.length < 8 || answer_q1.length < 1){
-            return false
+    window.onload = function(){
+        $("#nav").fadeIn();
+        $("#submit_form").fadeIn();
+    }
+
+    let submit = false;
+    function checkSubmit() {
+        if(!submit) {
+            // 表单提交后设置标志位
+            submit = true;
+            return true;
         }
-        return true
+        // 表单已经提交，不允许再次提交
+        console.log("请不要重复提交表单！");
+        return false;
+    }
+
+    // 打字机效果
+
+    class Typing {
+        constructor(opts) {
+            this.opts = opts || {};
+            this.source = opts.source;
+            this.output = opts.output;
+            this.delay = opts.delay || 12;
+            this.chain = {
+                parent: null,
+                dom: this.output,
+                val: []
+            };
+            if (!(typeof this.opts.done === 'function')) this.opts.done = function () {
+            };
+        }
+
+        init() {
+            this.chain.val = this.convert(this.source, this.chain.val);
+        }
+
+        convert(dom, arr) {
+            //将dom节点的子节点转换成数组，
+            let children = Array.from(dom.childNodes)
+            for (let i = 0; i < children.length; i++) {
+                let node = children[i]
+                if (node.nodeType === 3) {
+                    arr = arr.concat(node.nodeValue.split(''))   //将字符串转换成字符串数组，后面打印时才会一个一个的打印
+                } else if (node.nodeType === 1) {
+                    let val = []
+                    val = this.convert(node, val)
+                    arr.push({
+                        'dom': node,
+                        'val': val
+                    })
+                }
+            }
+            return arr
+        }
+
+        print(dom, val, callback) {
+            setTimeout(function () {
+                dom.appendChild(document.createTextNode(val));
+                callback();
+            }, this.delay);
+        }
+
+        play(ele) {
+            //当打印最后一个字符时，动画完毕，执行done
+            if (!ele.val.length) {
+                if (ele.parent) this.play(ele.parent);
+                else this.opts.done();
+                return true;
+            }
+            let current = ele.val.shift()  //获取第一个元素，同时删除数组中的第一个元素
+            if (typeof current === 'string') {
+                this.print(ele.dom, current, () => {
+                    this.play(ele); //继续打印下一个字符
+                })
+            } else {
+                let dom = current.dom.cloneNode() //克隆节点，不克隆节点的子节点，所以不用加参数true
+                ele.dom.appendChild(dom)
+                this.play({
+                    parent: ele,
+                    dom,
+                    val: current.val
+                })
+            }
+
+        }
+
+        start() {
+            this.init();
+            this.play(this.chain);
+        }
+    }
+
+    let source = document.getElementById('new_main')
+    let output = document.getElementById('output')
+    let typing = new Typing({
+        source,
+        output
+    })
+
+    function isLegalName (str) {
+        let re = /^[0-9a-zA-Z]*$/;
+        if (!re.test(str) || str.indexOf(" ") != -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function isLegalTel(str) {
+        let re = /^[0-9|+]*$/;
+        if (!re.test(str) || str.indexOf(" ") != -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function check(contact,answer_q1) {
+        if(contact.length < 10 || answer_q1.length < 1){
+            return false;
+        }
+        return true;
     }
     function submits() {
-        var nickname = document.getElementById("nickname")
-        var contact = document.getElementById("contact")
-        var answer_q1 = document.getElementById("answer_q1")
-        if(check(nickname.value,contact.value,answer_q1.value)==true){
+        let nickname = document.getElementById("nickname")
+        let contact = document.getElementById("contact")
+        let answer_q1 = document.getElementById("answer_q1")
+        if(check(contact.value,answer_q1.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
             $.ajax({
                 url:"https://sncdeveloper.cn:8000/argProject/day01",
                 method:"post",
@@ -66,7 +261,19 @@
                     answer_q1.value = ""
                     window.alert(result.msg)
                     if(result.data.solveStatus==1){
-                        window.open("index.html","_self");  //修改为下一天的地址
+                        $("#submit_form").empty();
+
+                        let intro="<h1 style='display: none' id='intro'>Day 01——签到之后（对第二天解题有帮助）</h1>";
+
+                        $("#submit_form").append(intro);
+                        $("#intro").fadeIn();
+                        setTimeout(function() {
+                            $("#submit_form").fadeOut();
+                            $("#output_container").fadeIn(2500);
+                            $("#output").fadeIn("slow");
+                        }, 1200);
+
+                        setTimeout(function() { typing.start(); }, 1200);
                     }
                 },
                 error(msg){
@@ -75,8 +282,15 @@
                 }
             })
         }else{
-            alert("用户名、联系方式格式有误或答案为空，请重新输入")
+            if (!isLegalName(nickname.value))
+                alert("用户名只能由数字和字母组成！");
+            else
+                alert("联系方式格式有误或答案为空，请重新输入")
         }
     }
+
+
+
 </script>
+
 </html>

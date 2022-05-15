@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
 
 </head>
-<script src="./js/jquery.js"></script>
+<script src="js/jquery.js"></script>
 <body>
     <header>
         <img class="logo" src="index_files/buctlogo.png" alt="logo">
@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td style="text-align: right">已经注册？<a href="getAnswer.html">答题</a></td>
+                    <td style="text-align: right">已经注册？<a href="../old/getAnswer2222.html">答题</a></td>
                 </tr>
             </table>
             <div class="get_answer_button">
@@ -51,6 +51,8 @@
         var contact = document.getElementById("contact")
         if(check(nickname.value,contact.value)==true){
             $.ajax({
+                // url:"http://127.0.0.1:8000/ARG/login",
+                // url:"rm-uf6y88ygmbol6f9hdao.mysql.rds.aliyuncs.com:8000/ARG/login",
                 url:"https://sncdeveloper.cn:8000/argProject/login",
                 method:"post",
                 async:"false",
