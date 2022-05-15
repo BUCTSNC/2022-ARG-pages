@@ -51,7 +51,7 @@
         var contact = document.getElementById("contact")
         if(check(nickname.value,contact.value)==true){
             $.ajax({
-                url:"http://127.0.0.1:8000/ARG/login",
+                url:"https://sncdeveloper.cn:8000/argProject/login",
                 method:"post",
                 async:"false",
                 data:{"nickname":nickname.value,"contact":contact.value},
