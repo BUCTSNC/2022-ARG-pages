@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: azure;
+}
+
+.answer_div {
+    height: 350px;
+    width: 650px;
+    border: #0088A9 solid;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer_form {
+    margin-bottom: 10px;
+}
+
+.answer_form input{
+    margin: 10px;
+}
+
+.text_area {
+    width: 270px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 15px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #c8cccf;
+    color: azure;
+    outline: 0;
+    padding-left: 10px;
+}
+
+.get_answer_button {
+    margin-top: 30px;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gab {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.gab:hover {
+    color: #24252A;
+}

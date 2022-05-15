@@ -1,0 +1,95 @@
+.btn-lang{
+	width: 76px;
+	border-color: #357ebd;
+	font-weight: bold;
+	height: 30px;
+}	
+.btn-lang-enabled {
+	background-color: #428bca;
+	color:#fff;
+}
+.btn-lang-disabled {
+	background-color: #fff;
+	color: #333;
+}
+.btn-lang-enabled:hover,.btn-lang-enabled:focus {
+	color:#fff;
+}
+.btn-group>.btn-lang:last-child{
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.slideShow{	
+    position: relative;
+    overflow: hidden;    
+}
+.slideShow ul{			
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+    width: 1000px;
+    position: relative;     
+}
+.slideShow ul li{
+	margin: 0px;
+	padding: 0px;
+    float: left;     
+}
+.slideShow .showNav{     
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    text-align:center;
+    font-size: 12px;    
+    line-height: 20px;
+}
+.slideShow .showNav span{
+    cursor: pointer;
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #ff5a28;
+    margin-left: 2px;
+    color: #fff;
+}
+.slideShow .showNav .active{
+    background: #b63e1a;
+}
+.tablogin{
+	margin-bottom: 15px;
+}
+.tablogin li{
+	
+}
+.sl_log_rt .tablogin li h5{
+	margin: 0;
+	line-height: 18px;
+}
+.nav-tabs{ border:none; }
+
+.tipsqrcode{ line-height:20px}
+
+.captcha_wrapper{
+	padding:0 15px;
+	height:245px; 
+}
+
+.zfdun_container{
+	height:245px;
+}
+
+.zfdun{
+	height:245px;
+}
+html,body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.impowerBox .qrcode {width: 100px;}
+.impowerBox .title {display: none;}
+.impowerBox .info {width: 100px;}
+.status_icon {display: none  !important}
+.impowerBox .status {text-align: center;}
