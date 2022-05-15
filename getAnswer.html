@@ -54,7 +54,7 @@
         var answer_q1 = document.getElementById("answer_q1")
         if(check(nickname.value,contact.value,answer_q1.value)==true){
             $.ajax({
-                url:"http://127.0.0.1:8000/ARG/day01",
+                url:"https://sncdeveloper.cn:8000/argProject/day01",
                 method:"post",
                 async:"false",
                 data:{"nickname":nickname.value,"contact":contact.value,"answer_q1":answer_q1.value},
