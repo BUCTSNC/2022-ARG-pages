@@ -1,43 +1,44 @@
 <!DOCTYPE html>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>SN学院考勤系统</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SN学院考勤系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="Copyright" content="zfsoft">
-<link rel="stylesheet" type="text/css" href="index_files/new-style.css">
-<link rel="icon" href="img/logo_xicon.png" type="image/x-icon">
-<link rel="shortcut icon" href="img/logo_xicon.png" type="image/x-icon">
-<script type="text/javascript">
-var _path 				= "/jwglxt";
-var _systemPath 		= "/jwglxt";
-var _stylePath 			= "/zftal-ui-v5-1.0.2";
-</script>
-<!--jQuery核心框架库 -->
-<script type="text/javascript" src="./index_files/jquery.min.js.下载"></script>
-<!--jQuery常用工具扩展库：基础工具,资源加载工具,元素尺寸相关工具 -->
-<script type="text/javascript" src="./index_files/jquery.utils.contact-min.js.下载" charset="utf-8"></script>
-<!--jQuery浏览器检测 -->
-<script type="text/javascript" src="./index_files/browse-judge.js.下载"></script>
-<script type="text/javascript">
-</script>
-<!--Bootstrap布局框架-->
-<link rel="stylesheet" type="text/css" href="./index_files/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="./index_files/zftal-ui.css">
-<script type="text/javascript" src="./index_files/bootstrap.min.js.下载" charset="utf-8"></script>
-<!--jQuery.chosen美化插件-->
-<link rel="stylesheet" type="text/css" href="./index_files/chosen-min.css">
+	<meta name="Copyright" content="zfsoft">
+	<link rel="stylesheet" type="text/css" href="index_files/new-style.css">
+	<link rel="icon" href="img/logo_xicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="img/logo_xicon.png" type="image/x-icon">
+	<script type="text/javascript">
+		var _path = "/jwglxt";
+		var _systemPath = "/jwglxt";
+		var _stylePath = "/zftal-ui-v5-1.0.2";
+	</script>
+	<!--jQuery核心框架库 -->
+	<script type="text/javascript" src="./index_files/jquery.min.js.下载"></script>
+	<!--jQuery常用工具扩展库：基础工具,资源加载工具,元素尺寸相关工具 -->
+	<script type="text/javascript" src="./index_files/jquery.utils.contact-min.js.下载" charset="utf-8"></script>
+	<!--jQuery浏览器检测 -->
+	<script type="text/javascript" src="./index_files/browse-judge.js.下载"></script>
+	<script type="text/javascript">
+	</script>
+	<!--Bootstrap布局框架-->
+	<link rel="stylesheet" type="text/css" href="./index_files/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./index_files/zftal-ui.css">
+	<script type="text/javascript" src="./index_files/bootstrap.min.js.下载" charset="utf-8"></script>
+	<!--jQuery.chosen美化插件-->
+	<link rel="stylesheet" type="text/css" href="./index_files/chosen-min.css">
 
-<script type="text/javascript" src="./index_files/jquery.choosen.concat-min.js.下载" charset="utf-8"></script>
-<script type="text/javascript" src="./index_files/zh_CN-min.js.下载" charset="utf-8"></script>
-<script type="text/javascript" src="./index_files/jquery.utils.pinyin.min.js.下载" charset="utf-8"></script>
-<!--业务框架jQuery全局设置和通用函数库-->
-<script type="text/javascript" src="./index_files/jquery.zftal.contact-min.js.下载"></script>
-<!--业务框架前端脚本国际化库-->
-<script type="text/javascript" src="./index_files/jquery.zftal_zh_CN-min.js.下载"></script>
+	<script type="text/javascript" src="./index_files/jquery.choosen.concat-min.js.下载" charset="utf-8"></script>
+	<script type="text/javascript" src="./index_files/zh_CN-min.js.下载" charset="utf-8"></script>
+	<script type="text/javascript" src="./index_files/jquery.utils.pinyin.min.js.下载" charset="utf-8"></script>
+	<!--业务框架jQuery全局设置和通用函数库-->
+	<script type="text/javascript" src="./index_files/jquery.zftal.contact-min.js.下载"></script>
+	<!--业务框架前端脚本国际化库-->
+	<script type="text/javascript" src="./index_files/jquery.zftal_zh_CN-min.js.下载"></script>
 
-<![endif]-->
+	<![endif]-->
 
 			
 	<meta name="renderer" content="webkit">
@@ -48,7 +49,7 @@ var _stylePath 			= "/zftal-ui-v5-1.0.2";
 	<script src="./index_files/bootbox.concat-min.js.下载" type="text/javascript" charset="utf-8"></script>
 	<script src="./index_files/zh_CN.js.下载" type="text/javascript" charset="utf-8"></script>
 	<script>
-		function forget_pwd () {
+		function forget_pwd() {
 			alert("不如登录一下试试？")
 		};
 		window.onblur = function () {
@@ -118,10 +119,10 @@ var _stylePath 			= "/zftal-ui-v5-1.0.2";
 								function check() {
 									let usr_name = document.getElementById("yhm").value;
 									let usr_pwd = document.getElementById("mm").value;
-									if(usr_name.length === 0 && usr_pwd.length === 0) {
+									if (usr_name.length === 0 && usr_pwd.length === 0) {
 										usr_login.submit();
 										alert("登录成功！");
-										window.location.href="getAnswer.html";  <!-- 连接在此接入-->
+										window.location.href = "https://sncdeveloper.cn:8000/argProject/login";  < !--连接在此接入-->
 									}
 									else {
 										alert("什么网站你都敢填用户名和密码！");
