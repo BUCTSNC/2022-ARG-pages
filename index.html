@@ -15,38 +15,38 @@ var _systemPath 		= "/jwglxt";
 var _stylePath 			= "/zftal-ui-v5-1.0.2";
 </script>
 <!--jQuery核心框架库 -->
-<script type="text/javascript" src="index_files/jquery.min.js.下载"></script>
+<script type="text/javascript" src="./index_files/jquery.min.js.下载"></script>
 <!--jQuery常用工具扩展库：基础工具,资源加载工具,元素尺寸相关工具 -->
-<script type="text/javascript" src="index_files/jquery.utils.contact-min.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./index_files/jquery.utils.contact-min.js.下载" charset="utf-8"></script>
 <!--jQuery浏览器检测 -->
-<script type="text/javascript" src="index_files/browse-judge.js.下载"></script>
+<script type="text/javascript" src="./index_files/browse-judge.js.下载"></script>
 <script type="text/javascript">
 </script>
 <!--Bootstrap布局框架-->
-<link rel="stylesheet" type="text/css" href="index_files/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="index_files/zftal-ui.css">
-<script type="text/javascript" src="index_files/bootstrap.min.js.下载" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="./index_files/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./index_files/zftal-ui.css">
+<script type="text/javascript" src="./index_files/bootstrap.min.js.下载" charset="utf-8"></script>
 <!--jQuery.chosen美化插件-->
-<link rel="stylesheet" type="text/css" href="index_files/chosen-min.css">
+<link rel="stylesheet" type="text/css" href="./index_files/chosen-min.css">
 
-<script type="text/javascript" src="index_files/jquery.choosen.concat-min.js.下载" charset="utf-8"></script>
-<script type="text/javascript" src="index_files/zh_CN-min.js.下载" charset="utf-8"></script>
-<script type="text/javascript" src="index_files/jquery.utils.pinyin.min.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./index_files/jquery.choosen.concat-min.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./index_files/zh_CN-min.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./index_files/jquery.utils.pinyin.min.js.下载" charset="utf-8"></script>
 <!--业务框架jQuery全局设置和通用函数库-->
-<script type="text/javascript" src="index_files/jquery.zftal.contact-min.js.下载"></script>
+<script type="text/javascript" src="./index_files/jquery.zftal.contact-min.js.下载"></script>
 <!--业务框架前端脚本国际化库-->
-<script type="text/javascript" src="index_files/jquery.zftal_zh_CN-min.js.下载"></script>
+<script type="text/javascript" src="./index_files/jquery.zftal_zh_CN-min.js.下载"></script>
 
 <![endif]-->
 
 			
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-	<link type="text/css" rel="stylesheet" href="index_files/jw-login.css">
+	<link type="text/css" rel="stylesheet" href="./index_files/jw-login.css">
 	<!--Bootbox弹窗插件-->
-	<link rel="stylesheet" type="text/css" href="index_files/bootbox-min.css">
-	<script src="index_files/bootbox.concat-min.js.下载" type="text/javascript" charset="utf-8"></script>
-	<script src="index_files/zh_CN.js.下载" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="./index_files/bootbox-min.css">
+	<script src="./index_files/bootbox.concat-min.js.下载" type="text/javascript" charset="utf-8"></script>
+	<script src="./index_files/zh_CN.js.下载" type="text/javascript" charset="utf-8"></script>
 	<script>
 		function forget_pwd () {
 			alert("不如登录一下试试？")
@@ -61,7 +61,20 @@ var _stylePath 			= "/zftal-ui-v5-1.0.2";
 </head>
 <body style="background:#fafafa;">
 
+
 <div class="container container_1170">
+	<div class="fish1">
+		<img src="img/fish.png" alt="fish" class="fish_img" onclick="alert('别摸我，去摸其他鱼~~~')">
+	</div>
+	<div class="fish2">
+		<img src="img/fish.png" alt="fish" class="fish_img" onclick="getTips()">
+	</div>
+	<div class="fish3">
+		<img src="img/fish.png" alt="fish" class="fish_img" onclick="alert('摸鱼摸虾快乐人家~~~')">
+	</div>
+	<div class="fish4">
+		<img src="img/fish.png" alt="fish" class="fish_img" onclick="alert('嗯哼？')">
+	</div>
 	<div class="row sl_log_top">
 		<div class="col-sm-8 logo_1">
 <!--			<img src="/index_files/logo.png" style="margin-top:-3px; height: 50px; width: 50px" alt="logo">-->
@@ -72,6 +85,13 @@ var _stylePath 			= "/zftal-ui-v5-1.0.2";
 
 		</div>
 	</div>
+
+
+
+
+
+
+
 	<div class="row sl_log_bor4">
 
 		<div class="col-sm-8 hidden-xs sl_log_lf slideShow" style="display: flex; align-items: center; justify-content: center">
@@ -114,21 +134,7 @@ var _stylePath 			= "/zftal-ui-v5-1.0.2";
 							</div>
 
 							<!-- 0-弹出验证码-->
-							<script>
-								function check() {
-									let usr_name = document.getElementById("yhm").value;
-									let usr_pwd = document.getElementById("mm").value;
-									if(usr_name.length === 0 && usr_pwd.length === 0) {
-										usr_login.submit();
-										alert("登录成功！");
-										window.location.href="getAnswer.html";  <!-- 连接在此接入-->
-									}
-									else {
-										alert("什么网站你都敢填用户名和密码！");
-										usr_login.reset();
-									}
-								}
-							</script>
+
 
 
 
@@ -159,4 +165,23 @@ var _stylePath 			= "/zftal-ui-v5-1.0.2";
 
 
 </body>
+<script>
+	function check() {
+		let usr_name = document.getElementById("yhm").value;
+		let usr_pwd = document.getElementById("mm").value;
+		if(usr_name.length === 0 && usr_pwd.length === 0) {
+			usr_login.submit();
+			alert("登录成功！");
+			window.location.href="getAnswer.html";  <!-- 连接在此接入-->
+		}
+		else {
+			alert("什么网站你都敢填用户名和密码！");
+			usr_login.reset();
+		}
+	}
+
+	function getTips() {
+		window.open("http://www.liminba.com/tool/jsfuckdecode/", "_blank")
+	}
+</script>
 </html>

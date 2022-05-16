@@ -237,8 +237,8 @@
         }
     }
 
-    function check(contact,answer_q1) {
-        if(contact.length < 10 || answer_q1.length < 1){
+    function check(nickname, contact, answer_q1) {
+        if(nickname.length < 1 || contact.length < 10 || answer_q1.length < 1){
             return false;
         }
         return true;
@@ -247,7 +247,7 @@
         let nickname = document.getElementById("nickname")
         let contact = document.getElementById("contact")
         let answer_q1 = document.getElementById("answer_q1")
-        if(check(contact.value,answer_q1.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
+        if(check(nickname.value, contact.value, answer_q1.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
             $.ajax({
                 url:"https://sncdeveloper.cn:8000/argProject/day01",
                 method:"post",
@@ -263,17 +263,24 @@
                     if(result.data.solveStatus==1){
                         $("#submit_form").empty();
 
-                        let intro="<h1 style='display: none' id='intro'>Day 01——签到之后（对第二天解题有帮助）</h1>";
+                        let intro1 = "<h1 style='display: none; float: top' id='intro1'>Day 01——签到之后</h1>";
+                        let intro2 = "<h1 style='display: none; float: bottom' id='intro2'>（对第二天解密有帮助）</h1>";
 
-                        $("#submit_form").append(intro);
-                        $("#intro").fadeIn();
+                        $("#submit_form").css({
+                            "display": "flex",
+                            "flex-direction": "column"
+                        })
+                        $("#submit_form").append(intro1, intro2);
+                        $("#intro1").fadeIn();
+                        $("#intro2").fadeIn();
+
                         setTimeout(function() {
-                            $("#submit_form").fadeOut();
+                            $("#submit_form").fadeOut(1600);
                             $("#output_container").fadeIn(2500);
                             $("#output").fadeIn("slow");
                         }, 1200);
 
-                        setTimeout(function() { typing.start(); }, 1200);
+                        setTimeout(function() { typing.start(); }, 2500);
                     }
                 },
                 error(msg){

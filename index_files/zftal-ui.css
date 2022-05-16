@@ -2614,7 +2614,7 @@ h4.title {
 	height: 30px;
 }
 
-.splc .flow-steps .text span {
+.splc .flow-steps .text_container span {
 	font-size: 12px;
 	text-align: center;
 	display: block;
@@ -2914,7 +2914,7 @@ h4.title {
 	color: #fff
 }
 
-.splc1 .step .text {
+.splc1 .step .text_container {
 	float: right;
 	width: auto;
 	background: #64B670 url(../images/step_text_bg.gif) left center no-repeat;
