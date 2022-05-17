@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/newStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/new_main.css">
+    <link rel="icon" href="img/logo_1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
+    <title>Day 2</title>
+</head>
+<script src="./js/jquery.js"></script>
+<body>
+    <header id="nav" style="display: none">
+        <img class="logo" src="img/buctlogo.png" alt="logo">
+        <img class="logo" src="img/snclogo.png" alt="logo">
+        <div class="alter_question" id="alter">
+            <div id="unselected_button"><button class="unselect" type="button" onclick="alter()">第一题</button></div>
+            <div id="selected_button"><button class="select" type="button" onclick="">第二题</button></div>
+        </div>
+    </header>
+
+
+
+    <div class="answer_div" id="submit_form" style="display: none">
+        <form name="answer_form" method="post" class="answer_form" onsubmit="checkSubmit()">
+            <table>
+                <tr>
+                    <td>用户名：</td>
+                    <td><input id="nickname" name="nickname" type="text" placeholder="注册过用户名" autocomplete="off" class="text_area"></td>
+                    <td>没有注册？<a href="register.html">注册</a></td>
+                </tr>
+                <tr>
+                    <td>电话号码：</td>
+                    <td><input id="contact" name="contact" type="text" placeholder="注册过的电话号码" autocomplete="off" class="text_area"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>获得的答案：</td>
+                    <td><input id="answer_q2_2" name="answer_q2_2" type="text" placeholder="Day 2 第二题答案" autocomplete="off" class="text_area"></td>
+                    <td></td>
+                </tr>
+
+            </table>
+            <div class="get_answer_button">
+                <button class="gab" type="reset" onclick="">重新输入</button>
+                <button class="gab" type="button" onclick="submits()">提交答案</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <!--提交后显示内容-->
+
+
+</body>
+<script>
+    window.onload = function(){
+        $("#nav").fadeIn();
+        $("#submit_form").fadeIn();
+    }
+
+    let submit = false;
+    function checkSubmit() {
+        if(!submit) {
+            // 表单提交后设置标志位
+            submit = true;
+            return true;
+        }
+        // 表单已经提交，不允许再次提交
+        console.log("请不要重复提交表单！");
+        return false;
+    }
+
+
+    function isLegalName (str) {
+        let re = /^[0-9a-zA-Z]*$/;
+        if (!re.test(str) || str.indexOf(" ") != -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function isLegalTel(str) {
+        let re = /^[0-9|+]*$/;
+        if (!re.test(str) || str.indexOf(" ") != -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function check(nickname, contact, answer_q2_2) {
+        if(nickname.length < 1 || contact.length < 10 || answer_q2_2.length < 1){
+            return false;
+        }
+        return true;
+    }
+    function submits() {
+        let nickname = document.getElementById("nickname")
+        let contact = document.getElementById("contact")
+        let answer_q2_2 = document.getElementById("answer_q2_2")
+        if(check(nickname.value, contact.value, answer_q2_2.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
+            $.ajax({
+                url:"https://sncdeveloper.cn:8000/argProject/day02_02",
+                method:"post",
+                async:"false",
+                data:{"nickname":nickname.value,"contact":contact.value,"answer_q2_2":answer_q2_2.value},
+                dataType:"json",
+                contentType:"application/x-www-form-urlencoded",
+                success(result){
+                    nickname.value = ""
+                    contact.value = ""
+                    answer_q2_2.value = ""
+                    window.alert(result.msg)
+                    // if(result.data.solveStatus==1){
+                    //
+                    // }
+                },
+                error(msg){
+                    console.log("error"+msg)
+                    window.alert("活动太火爆了，请稍后再试")
+                }
+            })
+        }else{
+            if (!isLegalName(nickname.value))
+                alert("用户名只能由数字和字母组成！");
+            else
+                alert("联系方式格式有误或答案为空，请重新输入")
+        }
+    }
+
+    function alter() {
+        window.location.href = "getAnswer_1.html";
+    }
+
+
+</script>
+
+</html>
