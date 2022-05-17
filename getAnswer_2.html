@@ -17,10 +17,6 @@
             <img class="logo" src="img/buctlogo.png" alt="logo">
             <img class="logo" src="img/snclogo.png" alt="logo">
         </div>
-        <div class="alter_question" id="alter" style="margin-top: 40px">
-            <div id="unselected_button" style="width: 97.5px"><button class="unselect" type="button" onclick="alter()" style="width: 97.5px">第一题</button></div>
-            <div id="selected_button" style="width: 97.5px"><button class="select" type="button" onclick="" style="width: 97.5px">第二题</button></div>
-        </div>
     </header>
 
 
@@ -28,6 +24,10 @@
 
     <div class="answer_div" id="submit_form" style="display: none">
         <form name="answer_form" method="post" class="answer_form" onsubmit="checkSubmit()">
+            <div class="alter_question" id="alter">
+                <div id="unselected_button"><button class="unselect" type="button" onclick="alter()">第一题</button></div>
+                <div id="selected_button"><button class="select" type="button" onclick="">第二题</button></div>
+            </div>
             <table>
                 <tr>
                     <td>用户名：</td>
@@ -56,18 +56,45 @@
 
 
 
+    <div class="answer_div" id="goToPC" style="display: none; font-size: 20px;">
+        <div style="display: flex; flex-direction: column; height: 250px; width: 250px; background: rgba(0,0, 0, 0.70); justify-content:center;align-items: center; border-radius: 30px">
+            <img src="img/goToPC.png" alt="" style="height: 70px;width:70px;background: none;margin-bottom: 20px">
+            <p style="background: none">在PC端访问</p>
+            <p style="background: none">体验效果更佳</p>
+        </div>
+
+    </div>
 
 
 
-    <!--提交后显示内容-->
+
+
+
 
 
 </body>
 <script>
-    window.onload = function(){
+    function checkDevice() {
+        let usrAgentInfo = navigator.userAgent;
+        let Agents = ['Android', 'iPhone', 'Windows Phone', 'iPad'];
+        let flag = true;
+        for (let i = 0; i < Agents.length; i++) {
+            if (usrAgentInfo.indexOf(Agents[i]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    (function () {
         $("#nav").fadeIn();
         $("#submit_form").fadeIn();
-    }
+        let flag = checkDevice();
+        if (flag == false) {
+            $("#goToPC").fadeIn();
+        }
+    })();
 
     let submit = false;
     function checkSubmit() {
