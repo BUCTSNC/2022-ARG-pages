@@ -45,6 +45,14 @@
 
 
 
+    <div class="answer_div" id="goToPC" style="display: none; font-size: 20px;">
+        <div style="display: flex; flex-direction: column; height: 250px; width: 250px; background: rgba(0,0, 0, 0.70); justify-content:center;align-items: center; border-radius: 30px">
+            <img src="img/goToPC.png" alt="" style="height: 70px;width:70px;background: none;margin-bottom: 20px">
+            <p style="background: none">在PC端访问</p>
+            <p style="background: none">体验效果更佳</p>
+        </div>
+
+    </div>
 
 
 
@@ -119,10 +127,27 @@
 
 </body>
 <script>
-    window.onload = function(){
+    function checkDevice() {
+        let usrAgentInfo = navigator.userAgent;
+        let Agents = ['Android', 'iPhone', 'Windows Phone', 'iPad'];
+        let flag = true;
+        for (let i = 0; i < Agents.length; i++) {
+            if (usrAgentInfo.indexOf(Agents[i]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    (function () {
         $("#nav").fadeIn();
         $("#submit_form").fadeIn();
-    }
+        let flag = checkDevice();
+        if (flag == false) {
+            $("#goToPC").fadeIn();
+        }
+    })();
 
     let submit = false;
     function checkSubmit() {
