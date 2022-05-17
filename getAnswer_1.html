@@ -129,6 +129,7 @@
         let nickname = document.getElementById("nickname")
         let contact = document.getElementById("contact")
         let answer_q2_1 = document.getElementById("answer_q2_1")
+        umami.trackEvent('submited answer day02_1', 'answer');
         if(check(nickname.value, contact.value, answer_q2_1.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
             $.ajax({
                 url:"https://sncdeveloper.cn:8000/argProject/day02_01",
