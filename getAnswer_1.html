@@ -65,6 +65,10 @@
     window.onload = function() {
         $("#nav").fadeIn();
         $("#submit_form").fadeIn();
+        let flag = checkDevice();
+        if (flag == false) {
+            $("#goToPC").fadeIn();
+        }
     }
     function checkDevice() {
         let usrAgentInfo = navigator.userAgent;
@@ -78,14 +82,6 @@
         }
         return flag;
     }
-
-    (function () {
-        let flag = checkDevice();
-        if (flag == false) {
-            $("#goToPC").fadeIn();
-        }
-    })();
-
 
     let submit = false;
     function checkSubmit() {
