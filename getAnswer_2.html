@@ -74,6 +74,10 @@
 
 </body>
 <script>
+    window.onload = function() {
+        $("#nav").fadeIn();
+        $("#submit_form").fadeIn();
+    }
     function checkDevice() {
         let usrAgentInfo = navigator.userAgent;
         let Agents = ['Android', 'iPhone', 'Windows Phone', 'iPad'];
@@ -88,8 +92,6 @@
     }
 
     (function () {
-        $("#nav").fadeIn();
-        $("#submit_form").fadeIn();
         let flag = checkDevice();
         if (flag == false) {
             $("#goToPC").fadeIn();
