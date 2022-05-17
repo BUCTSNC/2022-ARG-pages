@@ -1,4 +1,3 @@
 User-agent: *
 Disallow: /__esa
-
-Forever
+Key For Robot Rebooting : ('reverof').split('').reverse().join('')
