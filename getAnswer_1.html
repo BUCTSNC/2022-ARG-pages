@@ -11,15 +11,16 @@
 </head>
 <script src="./js/jquery.js"></script>
 <body>
-    <header id="nav" style="display: none">
-        <img class="logo" src="img/buctlogo.png" alt="logo">
-        <img class="logo" src="img/snclogo.png" alt="logo">
-        <div class="alter_question" id="alter">
-            <div id="selected_button"><button class="select" type="button" onclick="">第一题</button></div>
-            <div id="unselected_button"><button class="unselect" type="button" onclick="alter()">第二题</button></div>
+    <header id="nav" style="display: flex;flex-direction: column">
+        <div>
+            <img class="logo" src="img/buctlogo.png" alt="logo">
+            <img class="logo" src="img/snclogo.png" alt="logo">
+        </div>
+        <div class="alter_question" id="alter" style="margin-top: 40px">
+            <div id="selected_button" style="width: 97.5px"><button class="select" type="button" onclick="" style="width: 97.5px">第一题</button></div>
+            <div id="unselected_button" style="width: 97.5px"><button class="unselect" type="button" onclick="alter()" style="width: 97.5px">第二题</button></div>
         </div>
     </header>
-
 
 
     <div class="answer_div" id="submit_form" style="display: none">
@@ -48,12 +49,6 @@
             </div>
         </form>
     </div>
-
-
-
-
-
-
 
     <!--提交后显示内容-->
 

@@ -15,7 +15,7 @@
     border: #0088A9 solid;
     border-radius: 15px;
     position: absolute;
-    top: 50%;
+    top: 400px;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -99,23 +99,27 @@
 }
 
 .alter_question {
-    border: #0088A9 solid;
-    width: 10.5%;
-    position: absolute;
-    right: 5%;
-    top: 5%;
+    border: #0088A9 solid 2px;
+    /*width: 10.5%;*/
+    /*position: absolute;*/
+    /*right: 5%;*/
+    /*top: 5%;*/
+    width: 200px;
     display: flex;
     justify-content: space-between;
     border-radius: 50px;
     padding: 0;
+    margin: 0;
 }
 
 #selected_button {
+    width: 100px;
     border-radius: 50px;
     background-color: rgba(0, 136, 169, 1);
 }
 
 #unselected_button {
+    width: 100px;
     border-radius: 50px;
 }
 
