@@ -50,9 +50,9 @@
         </form>
     </div>
 
-    <div class="answer_div" id="goToPC" style="display: none; font-size: 20px;">
-        <div style="display: flex; flex-direction: column; height: 250px; width: 250px; background: rgba(0,0, 0, 0.75); justify-content:center;align-items: center; border-radius: 30px">
-            <img src="img/goToPC.png" alt="" style="height: 70px;width:70px;background: none;margin-bottom: 20px">
+    <div class="answer_div" id="goToPC" style="display: none; font-size: 14px;">
+        <div style="display: flex; flex-direction: column; height: 175px; width: 175px; background: rgba(0,0, 0, 0.70); justify-content:center;align-items: center; border-radius: 25px">
+            <img src="img/goToPC.png" alt="" style="height: 50px;width:50px;background: none;margin-bottom: 20px">
             <p style="background: none">在PC端访问</p>
             <p style="background: none">体验效果更佳</p>
         </div>
@@ -65,9 +65,13 @@
     window.onload = function() {
         $("#nav").fadeIn();
         $("#submit_form").fadeIn();
+
         let flag = checkDevice();
         if (flag == false) {
             $("#goToPC").fadeIn();
+            setInterval(function() {
+                $("#goToPC").fadeOut();
+            }, 1000)
         }
     }
     function checkDevice() {
