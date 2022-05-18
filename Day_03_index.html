@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+<!--    <link rel="stylesheet" type="text/css" href="css/newStyle.css">-->
+    <link rel="stylesheet" type="text/css" href="css/Day03_letter_style.css">
+    <link rel="stylesheet" type="text/css" href="css/Day03_book_style.css">
+    <link rel="stylesheet" type="text/css" href="css/Day03_index_style.css">
+    <link rel="icon" href="img/logo_1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
+    <title>Day 3</title>
+
+
+</head>
+<script src="./js/jquery.js"></script>
+<script type="text/javascript" src="js/turn.js"></script>
+<script type="text/javascript" src="js/turn.min.js"></script>
+
+<body style="background: #24252A">
+
+    <header id="nav">
+        <img class="logo" src="img/buctlogo.png" alt="logo">
+        <img class="logo" src="img/snclogo.png" alt="logo">
+    </header>
+
+
+
+    <!--  书本   -->
+
+    <div class="main" style="display: none">
+        <img src="img/backward.png" class="backward" onclick="backward()" alt="←" title="上一页">
+
+        <div id="flip_book" class="book">
+            <div class="hard pages book_cover">
+                Day 03
+            </div>
+            <div class="hard pages title_page">
+                <div class="title_page_content">苏柠彩の日记本</div></div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(7deg);">
+                        <div class="letter_output">
+                            <p class="diary_title">2038-05-14&nbsp;&nbsp;天气：晴&nbsp;&nbsp;心情：ToT</p>
+                            <p>&nbsp;&nbsp;我的OICO居然被封了，我很不理解为什么，因为我长得可爱吗？</p>
+                            <p>&nbsp;&nbsp;对我来说，工作是工作，工作的东西聊的再多，能量槽也不会补充。只有和其他一样可爱的小动物们聊天，才能补充能量，才能充满电呢。但是现在连这份乐趣也没了。</p>
+                            <p>&nbsp;&nbsp;要哭了，这下一个能聊天的好朋友也找不到了……我也好想能和你们一起玩啊！</p>
+                            <p>&nbsp;&nbsp;算了，我还是自己一个人出去走一走吧！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(3deg);">
+                        <div class="letter_output">
+                            <p class="diary_title">2038-05-15&nbsp;&nbsp;天气：晴&nbsp;&nbsp;心情：lonely</p>
+                            <p>&nbsp;&nbsp;昨天他们怎么可以封我的号呢？我可是一个守法的好宝宝捏！都怪他们，都让我迷路了，不过u1s1，昨天的那个地方还真的好漂亮</p>
+                            <p>&nbsp;&nbsp;那个石柱好奇怪的样子，应该是20世纪的产物了吧，周围有种莫名的感觉，总有股强大的力量向让我进去</p>
+                            <p>&nbsp;&nbsp;那个洞好大，差点就出不来了捏，嘤嘤嘤...</p>
+                            <p>&nbsp;&nbsp;不行，我还是很好奇里边有什么东西，我一定要搞清楚这里有什么东西！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(-5deg);">
+                        <div class="letter_output">
+                            <p class="diary_title">2038-05-16&nbsp;&nbsp;天气：阴&nbsp;&nbsp;心情：奇怪</p>
+                            <p>&nbsp;&nbsp;今天的天气突然就变得阴沉沉的，好像发生了什么大是一样，不过这可不影响本小姐探索的欲望！</p>
+                            <p>&nbsp;&nbsp;去的路上好奇怪，我总感觉路上的东西好像被什么人动过了，莫非是有其他人也来过这里？</p>
+                            <p>&nbsp;&nbsp;最奇怪的是大门好像是动的一般，上次我进去的时候入口还不是这个样子啊，莫非这里边在藏着什么东西？（接下页）</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(9deg);">
+                        <div class="letter_output">
+                            <p>&nbsp;&nbsp;里边的墙上刻着一些奇奇怪怪的符号，我想拍下来，但是好奇怪的是电子产品在这里都无法使用，今天还没有带纸笔，看来明天还得再去一趟，ε=(´ο｀*)))唉！</p>
+                            <p>&nbsp;&nbsp;这里边好像是一个很大很大的迷宫，走不到尽头一般，幸亏我留下了一些标记，真是类似本小姐了！╭(╯^╰)╮</p>
+                            <p>&nbsp;&nbsp;明天再来！我一定要搞清楚这里是什么，除了上课和写作业，还有什么是本小姐做不到的ヾ(◍°∇°◍)ﾉﾞ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(-5deg);">
+                        <div class="letter_output">
+                            <p class="diary_title">2038-05-17&nbsp;&nbsp;天气：雨&nbsp;&nbsp;心情：lonely</p>
+                            <p>&nbsp;&nbsp;难得早起了一次，考试周我都没有起过这么早呢，居然下雨了，怪不得昨天天气那么阴沉</p>
+                            <p>&nbsp;&nbsp;看来今天是去不了了o(╥﹏╥)o，现在也没有办法与那些可爱的小动物们聊聊天，我还有好多ddl，没有动力写了捏o(╥﹏╥)o</p>
+                            <p>&nbsp;&nbsp;要不查一下那个迷宫的信息吧！</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(-9deg); ">
+                        <div class="letter_output">
+                            <p>SNC移动矩阵堆：</p>
+                            <p>&nbsp;&nbsp;2001年4月，科学家认识到人们无休止的挥霍能源终会导致能源枯竭，3000余名科学家联名向联合会提议建立后备能源研究所，用于研究强大的能量核心，后来被勒令停止，一共建立了六个研究所，地址均被加密，停止原因目前不详，其进入方式也为机密，只有部分人可以接触到，据说他还有个功能，可以探测来访者的心境，以及最近发生的事情，渲染出一种零来访者害怕的氛围，来劝退来访者</p>
+                            <p>(查询时被上京的国防部发现了，怎么办捏，不会被处分吧？[・_・?])</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(7deg);">
+                        <div class="letter_output">
+                            <p class="diary_title" style="font-size: 18px !important;">2038-05-18&nbsp;&nbsp;天气：晴&nbsp;&nbsp;心情：激动</p>
+                            <p>雨过天晴，这么好的日子当然不能只赶ddl啦，出发！</p>
+                            <p>这次迷宫的入口好像没有变，奇怪了，因为我昨天没有来吗？</p>
+                            <p>我带着纸笔和查到的一部分资料，在迷宫中，不对，应该是矩阵中，走了一大圈，发现他的构成是一个5X5的矩阵，每个小格子中都有内容，看上去好像有点规律，但让人摸不着头脑</p>
+                            <p>矩阵石壁上的刻印中隐隐约约写着lonely单词，它怎么知道我最近有点孤独的呢，先不想这个了吧！</p>
+                            <p>在矩阵的正中心有个石台，上边好多内容，还是英文的捏，抄的我手都酸了，嘤嘤嘤……</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(2deg);">
+                        <div class="letter_output" style="font-family: 'Shadows Into Light', cursive !important;">
+                            <p>As the 5*5 matrix shows , if you obtain the plain string "ordbib" , you are supposed to
+                                follow the rules:</p>
+                            <p> * First , you should divide the plain string "oribdb" into groups whose size is 2 . Now
+                                we can get three groups "or","ib","db".</p>
+                            <p>* From the 5*5 matrix , character 'o' and character 'r' are in the same row . You should
+                                move one unit right(by loop) and then get substring "co".</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(10deg);">
+                        <div class="letter_output" style="font-family: 'Shadows Into Light', cursive !important;">
+                            <p>* Character 'd' and character 'b' are in the same column, You should move one unit
+                                down(by loop) and then get substring "bg".</p>
+                            <p>* Character 'i' and character 'b' are not in the same row or column . So you should find
+                                a particular rectangle whose vertices contains both 'i' and 'b' , find another two
+                                vertices in some order and then you get substring "de".</p>
+                            <p>Finally , merge all substrings and then get "cobgde".</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(2deg);">
+                        <div class="letter_output" style="font-family: 'Shadows Into Light', cursive !important;">
+                            <p style="font-family: 'Zhi Mang Xing', cursive;">矩阵的大致构成是这样的：</p>
+                            <table style="margin-left: 40px; width: 100px;">
+                                <tr>
+                                    <td>H</td>
+                                    <td>V</td>
+                                    <td>P</td>
+                                    <td>S</td>
+                                    <td>T</td>
+                                </tr>
+                                <tr>
+                                    <td>Q</td>
+                                    <td>A</td>
+                                    <td>U</td>
+                                    <td>D</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>F</td>
+                                    <td>J</td>
+                                    <td>X</td>
+                                    <td>B</td>
+                                    <td>E</td>
+                                </tr>
+                                <tr>
+                                    <td>K</td>
+                                    <td>M</td>
+                                    <td>Z</td>
+                                    <td>G</td>
+                                    <td>Y</td>
+                                </tr>
+                                <tr>
+                                    <td>R</td>
+                                    <td>O</td>
+                                    <td>C</td>
+                                    <td>L</td>
+                                    <td>N</td>
+                                </tr>
+                            </table>
+                            <p style="font-family: 'Zhi Mang Xing', cursive;">这怎么解嘛，看来我还得冒险再去找点信息</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page">
+                        <div class="letter_output info">
+                            <p class="diary_title">关于后备能源研究所的相关规定&nbsp;第8次修正案</p>
+                            <p>此次会议讨论了有关后备能源研究所█████分所（一下简称"矩阵"）的相关规定</p>
+                            <p>第二章第16条：</p>
+                            <p>矩阵的密码初步确定采用普莱费尔密码(Playfair cipher)，会议初步决定将██████作为明文，██████为密码（详见密码制定守则）</p>
+                            <p>第二章第45条：</p>
+                            <p>矩阵会定期更改秘钥，无重大事件，明文将不会进行改变，如进行改变，将在附录处记录</p>
+                            <p>附录：</p>
+                            <p>（空）</p>
+                            <p>密码制定守则（第七版）</p>
+                            <p>Connection Failed......</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pages">
+                <div class="content">
+                    <div class="letter_page letter_output_page" style="transform: rotate(2deg);">
+                        <div class="letter_output">
+                            <p>又一次被发现了捏，真的不会有什么事吗？</p>
+                            <p>莫非这里真的有些不可告人的秘密吗？现在想想，每次去的时候都感觉有人在跟着我</p>
+                            <p>不管这么多了，先把密码解出来吧！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hard pages final_page">
+                end
+                <img src="img/forward.png" onclick="turnToAnswer()" alt="→" title="去答题" class="turn_to_answer">
+            </div>
+
+        </div>
+
+        <img src="img/forward.png" class="forward" onclick="forward()" alt="→" title="下一页">
+    </div>
+
+
+
+
+
+    <div style="height: 200px">
+    </div>
+
+
+
+
+</body>
+<script>
+    window.onload = function(){
+        $("#nav").fadeIn();
+        $(".main").fadeIn(2000)
+    }
+
+
+    function turnToAnswer() {
+        window.location.href = "getAnswer_Day03.html";
+    }
+
+    $("#flip_book").turn({
+        width: 900,
+        height: 600,
+        acceleration: true, // 是否加速，对于触摸屏的设备，这个值必须为true
+        autoCenter: true,
+        direction: "ltr", // 翻书方向，值为rtl / ltr（3种写法），②HTML: <div id="flipbook" dir="rtl"></div> ③ CSS:#flipbook { direction:rtl; }
+        display: 'double', // 显示单页or双页,默认值是double (如果single, class为hard的div首末各一个就可以)
+    })
+
+    function forward() {
+        $("#flip_book").turn("next");
+    }
+
+    function backward() {
+        $("#flip_book").turn("previous");
+    }
+
+</script>
+
+</html>

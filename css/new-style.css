@@ -1,0 +1,37 @@
+.hot_pink {
+    color: #f9017e !important;
+}
+
+.fish_img {
+    height: 15px;
+    width: auto;
+    cursor: pointer;
+}
+
+.fish1 {
+    display: inline;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.fish2 {
+    display: inline;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.fish3 {
+    display: inline;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.fish4 {
+    display: inline;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
