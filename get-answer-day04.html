@@ -39,7 +39,7 @@
             <div class="get_answer_button">
                 <button class="gab" type="reset" onclick="">重新输入</button>
 <!--                <button class="gab" type="button" onclick="submits()">提交答案</button>-->
-                <button class="gab" type="button" onclick="onClick()">提交答案</button>
+                <button class="gab" type="button" onclick="submits()">提交答案</button>
 
             </div>
         </form>
@@ -52,6 +52,34 @@
 
 
     <!--提交后显示内容-->
+
+
+    <div class="code_window" style="display: none; width: 800px; position:absolute; left: 50%; transform: translateX(-50%)">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <div id="input" style="display: none; font-size: 18px !important;">
+                <div style="font-size: 24px !important; background-color: rgb(23, 21, 21) !important;">《矩阵世界指南》</div>
+                <p> update at cyberyear 1010/10/01</p>
+                <p>“你好，古老的智慧体，欢迎来到矩阵世界，我是终端机04。如你所见，赛博文明在cyberyear 1010/10/00
+                    毁灭了。届时赛博文明修复程序启动，将承载赛博文明的核心技术封存与矩阵内，跃迁至前赛博纪元的宇宙坐标，等待符合标准的智慧体，重启赛博文明的辉煌。</p>
+
+                <p>
+                    赛博文明是一个人与机器平等的文明。由于通过矩阵科技可以实现有机体与程序体的相互转换，赛博公民们可以自由选择意识的存在形式（即以有机体存在或以程序体存在）。这一技术虽然在一定程度上奠定了人权与机械权的绝对平等，但是随着自私心理的膨胀，通过在人与机器的不断转换来规避公民义务的行为大为流行。至此，赛博文明走向衰落......在赛博文明苟延残喘的最后一年，遍地都是抽去意识的被抛弃的有机体，中央存储库也被支离破碎的混乱的程序体塞满。而我的创造者——赛博文明最后一个睿智的老人，早早的预言了这一天的到来，让我将这项技术改善，令其不在能够被滥用，再送回合适的时间点，以重启赛博文明。</p>
+
+                <p>
+                    为了避免悲剧的再次发生，转换条件加入了严格的限制，防止频繁的转换影响社会秩序。如果有机体想要转换为程序体，则需找到愿意自我销毁的程序体，覆盖ta的存在。反之，程序体要想转换为有机体，也要找到愿意抛弃自己的灵魂的有机体。</p>
+
+                <p>“现在，你已被矩阵选中机会仅有一次，是否要参与转换？”</p>
+
+                <p>“...是”</p>
+            </div>
+            <div id="output" style="background-color: rgb(23, 21, 21) !important;"></div>
+        </div>
+    </div>
 
 
 
@@ -103,25 +131,24 @@
     function submits() {
         let nickname = document.getElementById("nickname")
         let contact = document.getElementById("contact")
-        let answer_q3 = document.getElementById("answer_q3")
-        if(check(nickname.value, contact.value, answer_q3.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
+        let answer_q4 = document.getElementById("answer_q4")
+        if(check(nickname.value, contact.value, answer_q4.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
             $.ajax({
                 url:"https://sncdeveloper.cn:8000/argProject/day03",
                 // url:"http://127.0.0.1:8000/ARG/day03",
                 method:"post",
                 async:"false",
-                data:{"nickname":nickname.value,"contact":contact.value,"answer_q3":answer_q3.value},
+                data:{"nickname":nickname.value,"contact":contact.value,"answer_q4":answer_q4.value},
                 dataType:"json",
                 contentType:"application/x-www-form-urlencoded",
                 success(result){
                     nickname.value = ""
                     contact.value = ""
-                    answer_q3.value = ""
+                    answer_q4.value = ""
                     window.alert(result.msg)
                     if(result.data.solveStatus=="####"){ //不做成功提交后的打字机效果
 
-
-
+                        onClick();
                     }
                 },
                 error(msg){
@@ -139,7 +166,6 @@
 
 
     function onClick() {
-        $("#submit_form").fadeOut();
 
         let source = document.getElementById('input');
         let output = document.getElementById('output');
@@ -149,6 +175,9 @@
             delay: 15
         });
 
+        $("#submit_form").fadeOut();
+        $('.code_window').fadeIn();
+        typing.start();
 
     }
 
