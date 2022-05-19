@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/newStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/new_main.css">
+    <link rel="stylesheet" type="text/css" href="css/code_windows.css">
+    <link rel="icon" href="img/logo_1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
+    <title>Day 5 Test Page</title>
+</head>
+<script src="./js/jquery.js"></script>
+<script src="./js/typist.js"></script>
+<body>
+    <header id="nav" style="display: none">
+        <img class="logo" src="img/buctlogo.png" alt="logo">
+        <img class="logo" src="img/snclogo.png" alt="logo">
+    </header>
+    <div class="answer_div" id="submit_form" style="display: none">
+        <form name="answer_form" method="post" class="answer_form" onsubmit="checkSubmit()">
+            <table>
+                <tr>
+                    <td>用户名：</td>
+                    <td><input id="nickname" name="nickname" type="text" placeholder="注册过用户名" autocomplet e="off" class="text_area"></td>
+                    <td>没有注册？<a href="register.html">注册</a></td>
+                </tr>
+                <tr>
+                    <td>电话号码：</td>
+                    <td><input id="contact" name="contact" type="text" placeholder="注册过的电话号码" autocomplet e="off" class="text_area"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>获得的答案：</td>
+                    <td><input id="answer_q5" name="answer_q5" type="text" placeholder="Day 5答案" autocomplet e="off" class="text_area"></td>
+                    <td>没有找到？<a href="day-04-index.html">返回</a> </td>
+                </tr>
+            </table>
+            <div class="get_answer_button">
+                <button class="gab" type="reset" onclick="">重新输入</button>
+<!--                <button class="gab" type="button" onclick="submits()">提交答案</button>-->
+                <button class="gab" type="button" onclick="KatherineLine()">提交答案</button>
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <!--提交后显示内容-->
+
+
+    <div class="code_window" style="display: none; width: 800px; position:absolute; left: 50%; transform: translateX(-50%) " id="Snc">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <div id="Snc_input" style="display: none; font-size: 18px !important;">
+                <div style="font-size: 24px !important; background-color: rgb(23, 21, 21) !important;">This is Snc</div>
+                <p>Test</p>
+            </div>
+            <div id="Snc_output" style="background-color: rgb(23, 21, 21) !important;"></div>
+        </div>
+    </div>
+
+    <div class="code_window" style="display: none; width: 800px; position:absolute; left: 50%; transform: translateX(-50%)" id="Katherine">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <div id="Katherine_input" style="display: none; font-size: 18px !important;">
+                <div style="font-size: 24px !important; background-color: rgb(23, 21, 21) !important;">This is Katherine</div>
+                <p>Test</p>
+            </div>
+            <div id="Katherine_output" style="background-color: rgb(23, 21, 21) !important;"></div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+<script>
+    window.onload = function(){
+        $("#nav").fadeIn();
+        $("#submit_form").fadeIn();
+    }
+
+    let submit = false;
+    function checkSubmit() {
+        if(!submit) {
+            // 表单提交后设置标志位
+            submit = true;
+            return true;
+        }
+        // 表单已经提交，不允许再次提交
+        console.log("请不要重复提交表单！");
+        return false;
+    }
+
+    function isLegalName (str) {
+        let re = /^[0-9a-zA-Z]*$/;
+        if (!re.test(str) || str.indexOf(" ") != -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function isLegalTel(str) {
+        let re = /^[0-9|+]*$/;
+        if (!re.test(str) || str.indexOf(" ") != -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function check(nickname, contact, answer_q3) {
+        if(nickname.length < 1 || contact.length < 10 || answer_q3.length < 1){
+            return false;
+        }
+        return true;
+    }
+    function submits() {
+        let nickname = document.getElementById("nickname")
+        let contact = document.getElementById("contact")
+        let answer_q5 = document.getElementById("answer_q5")
+        if(check(nickname.value, contact.value, answer_q5.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
+            $.ajax({
+                url:"https://sncdeveloper.cn:8000/argProject/day03",
+                // url:"http://127.0.0.1:8000/ARG/day03",
+                method:"post",
+                async:"false",
+                data:{"nickname":nickname.value,"contact":contact.value,"answer_q4":answer_q5.value},
+                dataType:"json",
+                contentType:"application/x-www-form-urlencoded",
+                success(result){
+                    nickname.value = ""
+                    contact.value = ""
+                    answer_q5.value = ""
+                    window.alert(result.msg)
+                    if(result.data.solveStatus === "1"){ //不做成功提交后的打字机效
+                        SNCLine();
+                    } else if (result.data.solveStatus === "2") {
+                        KatherineLine();
+                    }
+                },
+                error(msg){
+                    console.log("error"+msg)
+                    window.alert("活动太火爆了，请稍后再试")
+                }
+            })
+        }else{
+            if (!isLegalName(nickname.value))
+                alert("用户名只能由数字和字母组成！");
+            else
+                alert("联系方式格式有误或答案为空，请重新输入")
+        }
+    }
+
+
+
+
+
+        function SNCLine() {
+            let sourceS = document.getElementById('Snc_input');
+            let outputS = document.getElementById('Snc_output');
+            let typingS = new Typing({
+                sourceS,
+                outputS,
+                delay: 15
+            });
+            $('#submit_form').fadeOut();
+            $('#Snc').fadeIn();
+            setTimeout(function (){
+                typingS.start();
+            }, 1000)
+        }
+
+        function  KatherineLine() {
+            let sourceK = document.getElementById('Katherine_input');
+            let outputK = document.getElementById('Katherine_output');
+            let typingK = new Typing({
+                sourceK,
+                outputK,
+                delay: 15
+            });
+            $('#submit_form').fadeOut();
+            $('#Katherine').fadeIn();
+            setTimeout(function (){
+                typingK.start();
+            }, 1000)
+        }
+
+
+
+
+</script>
+
+</html>
