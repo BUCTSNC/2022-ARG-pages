@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/Day04_index_style.css">
+    <link rel="stylesheet" type="text/css" href="index_files/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/code_windows.css">
+
+    <link rel="icon" href="img/logo_1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_1.png" type="image/x-icon">
+    <script async defer data-website-id="0a453f1f-f1bc-4f69-9772-6a1e6cfea828" src="https://stat.buctsnc.cn/umami.js" data-domains="https://arg2022.buctsnc.cn/" data-cache="true"></script>
+    <title>Day 4</title>
+</head>
+<script src="./js/jquery.js"></script>
+<script src="./js/typist.js"></script>
+<script src="./js/randomShow.js"></script>
+<body>
+    <header id="nav" style="display: none">
+        <img class="logo" src="index_files/buctlogo.png" alt="logo">
+        <img class="logo" src="img/snclogo.png" alt="logo">
+    </header>
+
+
+    <!--test code-->
+    <div id="tools" style="display: none">
+        <button id="btn_disappear" class="gab_new" onclick="clickToDisappear()"><img src="img/backward.png" alt="<<" title="上一步" class="day4_setting"></button>
+        <button id="btn_appear" class="gab_new" onclick="clickToAppear()"><img src="img/forward.png" alt=">>" title="下一步" class="day4_setting"></button>
+        <div class="flush_container">
+            <img src="img/flush.png" id="flush" class="flush" alt="again" onclick="window.location.reload()">
+        </div>
+    </div>
+    <!--test code end-->
+
+
+    <div class="code_window plot" style="display: none;">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <div id="plot_input" class="plot_content" style="display: none">
+                <p>随着苏柠彩解开矩阵密码，矩阵中能量被释放</p><br>
+                <p>此时，凯瑟琳的前方产生巨大的响动。即使不用探测器，凯瑟琳用机械眼也能知道，一股巨大的能量场以迅猛的攻势向自己涌来。然而，现在的自己什么也做不了，只能任由自己被能量场吞没。</p><br>
+                <p>当凯瑟琳再次醒来时，她仍处于洞穴之中，不一样的是，她再也没有无力的感觉，甚至察觉不到自己已经不依托于机体的存在，此时的她有了一个坚定的目标——“我要成为一名人类”。</p>
+            </div>
+            <div class="plot_content" id="plot_output"></div>
+        </div>
+    </div>
+
+    <div class="code_window monologue" style="display: none;">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <div id="monologue_input" class="monologue_content" style="display: none">
+                <p>Starting >>>>>>>>>>>>>>>>>>>>>>></p>
+                <p>Success!</p>
+                <p>【系统提示！】检测到外部数据源！</p>
+                <p>【系统提示！】检测到外部数据源！</p>
+                <p>【系统提示！】检测到外部数据源！</p>
+                <p>我想学习人的语言，想学习需要心的语言，而不是充满我组成我的那些程序那些代码那些结构化了的东西</p>
+                <p>【系统提示！】检测到外部数据源！</p>
+                <p>【系统提示！】检测到外部数据源！</p>
+                <p>【系统提示！】检测到外部数据源！</p>
+            </div>
+            <div class="monologue_content" id="monologue_output"></div>
+        </div>
+    </div>
+
+
+
+
+    <!--十次报错提醒-->
+<!--1.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+                <p>Connecting....</p>
+                <p style="color: red">FAILED</p>
+                <p>Loss 745622.123242</p>
+                <p>Error Code: $&(@##.!#%#&#</p>
+                <div class="ee_div">
+                    <div class="ee">Encoding error:</div>
+                    <table class="table_class">
+                        <tr>
+                            <td class="td1">1</td>
+                            <td>|</td>
+                            <td class="td2">2</td>
+                            <td>|</td>
+                            <td class="td3">3</td>
+                        </tr>
+                        <tr style="font-size: 16px; font-weight: bolder">
+                            <td>——</td>
+                            <td></td>
+                            <td>——</td>
+                            <td></td>
+                            <td>——</td>
+                        </tr>
+                        <tr>
+                            <td class="td4">4</td>
+                            <td>|</td>
+                            <td class="td5">5</td>
+                            <td>|</td>
+                            <td class="td6">6</td>
+                        </tr>
+                        <tr style="font-size: 16px; font-weight: bolder">
+                            <td>——</td>
+                            <td></td>
+                            <td>——</td>
+                            <td></td>
+                            <td>——</td>
+                        </tr>
+                        <tr>
+                            <td class="td7">7</td>
+                            <td>|</td>
+                            <td class="td8">8</td>
+                            <td>|</td>
+                            <td class="td9">9</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+    </div>
+<!--2.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 282369.345236</p>
+            <p>Error Code: #^#%@*.%&(#%@</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--3.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 235743.683457</p>
+            <p>Error Code: #%($&%.@^%&($</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--4.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 384518.326945</p>
+            <p>Error Code: %^&(!^.%#@*&(</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--5.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 23574.683457</p>
+            <p>Error Code: #%($&.@^%&(</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--6.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 879151.168546</p>
+            <p>Error Code: ^$*!(!.!@^(&@</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--7.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 786431.854657</p>
+            <p>Error Code: $^@&%!.^(&@($</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--8.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 389652.323464</p>
+            <p>Error Code: %^*@(#.%#%&@&</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--9.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: red">FAILED</p>
+            <p>Loss 967862.648684</p>
+            <p>Error Code: *@$^@#.@&^@^&</p>
+            <div class="ee_div">
+                <div class="ee">Encoding error:</div>
+                <table class="table_class">
+                    <tr>
+                        <td class="td1">1</td>
+                        <td>|</td>
+                        <td class="td2">2</td>
+                        <td>|</td>
+                        <td class="td3">3</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td4">4</td>
+                        <td>|</td>
+                        <td class="td5">5</td>
+                        <td>|</td>
+                        <td class="td6">6</td>
+                    </tr>
+                    <tr style="font-size: 16px; font-weight: bolder">
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                        <td></td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td class="td7">7</td>
+                        <td>|</td>
+                        <td class="td8">8</td>
+                        <td>|</td>
+                        <td class="td9">9</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--10.-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <p>Connecting....</p>
+            <p style="color: green">SUCCESS</p>
+            <p>Location 65535.000000</p>
+            <p>Success: ^%%#%.))))))</p>
+        </div>
+    </div>
+    <!--十次报错结束-->
+
+
+
+
+
+<!--文件传输-->
+    <div class="code_window" style="display: none">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <div id="file_trans_input" style="display: none">
+                <p>Transfering >>>>>>>>>>>>>>>>></p>
+                <p>File successfully transfered!</p>
+                <p>Opening&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>>>>>>>>>>>>>>>></p>
+                <p>—————————————————————————————</p>
+                <p>&!&&&!#@&(&%</p>
+            </div>
+            <div id="file_trans_output"></div>
+        </div>
+    </div>
+
+
+    <div class="code_window plot" style="display: none;">
+        <div class="code_window_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="code_block">
+            <div id="plot2_input" class="plot_content" style="display: none">
+                <p>这些数据是来自于哪的啊？</p>
+                <p>这是...什么...？</p>
+                <p>怎么都是一些乱码？</p>
+                <p>&!&&&!#@&(&%</p>
+                <p>这是什么？</p>
+                <p>我有一种预感，想实现我的目标，就得从解码这份数据开始。</p>
+                <p style="cursor: pointer" onclick="turnToAnswer()">====================></p>
+            </div>
+            <div class="monologue_content" id="plot2_output"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="answer_div" id="goToPC" style="display: none; font-size: 14px;">
+        <div style="display: flex; flex-direction: column; height: 175px; width: 175px; background: rgba(0,0, 0, 0.70); justify-content:center;align-items: center; border-radius: 25px">
+            <img src="img/goToPC.png" alt="" style="height: 50px;width:50px;background: none;margin-bottom: 20px">
+            <p style="background: none">在PC端访问</p>
+            <p style="background: none">体验效果更佳</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--提交后显示内容-->
+
+
+</body>
+<script>
+    function checkDevice() {
+        let usrAgentInfo = navigator.userAgent;
+        let Agents = ['Android', 'iPhone', 'Windows Phone', 'iPad'];
+        let flag = true;
+        for (let i = 0; i < Agents.length; i++) {
+            if (usrAgentInfo.indexOf(Agents[i]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+
+
+
+    var randWindow = new randomPosition(".code_window", 200, 500, 300, 700);
+    var isPrintFile = false;
+    var isPrintPlot = false;
+    var isPrintPlot2 = false;
+    var isPrintMonologue = false;
+    var isOver = false;
+
+    function clickToAppear() {
+        if (randWindow.current === randWindow.codeWindows.length && isOver === true) {
+            window.location.href = "get-answer-day04.html";
+        } else {
+            randWindow.appear();
+            if (randWindow.current === 1 && isPrintPlot === false) {
+                let source = document.getElementById('plot_input');
+                let output = document.getElementById('plot_output');
+                let typing1 = new Typing({
+                    source,
+                    output,
+                    delay: 23
+                })
+                typing1.start();
+                isPrintPlot = true;
+            } else if (randWindow.current === 2 && isPrintMonologue === false) {
+                let source = document.getElementById('monologue_input');
+                let output = document.getElementById('monologue_output');
+                let typing2 = new Typing({
+                    source,
+                    output,
+                    delay: 23
+                })
+                typing2.start();
+                isPrintMonologue = true;
+                $(randWindow.codeWindows[randWindow.current - 2]).fadeOut();
+            } else if (randWindow.current === randWindow.codeWindows.length - 1 && isPrintFile === false) {
+                let source = document.getElementById('file_trans_input')
+                let output = document.getElementById('file_trans_output')
+                let typing3 = new Typing({
+                    source,
+                    output,
+                    delay: 23
+                })
+                typing3.start();
+                isPrintFile = true;
+            } else if (randWindow.current === randWindow.codeWindows.length && isPrintPlot2 === false) {
+                let source = document.getElementById('plot2_input')
+                let output = document.getElementById('plot2_output')
+                let typing4 = new Typing({
+                    source,
+                    output,
+                    delay: 23
+                })
+                typing4.start();
+                isPrintPlot2 = true;
+                isOver = true;
+            }
+        }
+    }
+
+    function clickToDisappear() {
+        randWindow.disappear();
+    }
+
+
+    function turnToAnswer() {
+        window.location.href = "get-answer-day04.html";
+    }
+
+
+    window.onload = function () {
+        $("#nav").fadeIn();
+        $('#tools').fadeIn();
+        let flag = checkDevice();
+        if (flag == false) {
+            $("#goToPC").fadeIn();
+            setInterval(function() {
+                $("#goToPC").fadeOut();
+            }, 1000)
+        }
+        setTimeout(function () {
+            clickToAppear();
+        }, 1000);
+    };
+
+    // hover 效果
+
+    $('.td1').hover(function () {
+        $('.td1').empty();
+        $('.td1').text('!')
+    }, function () {
+        $('.td1').empty();
+        $('.td1').text('1')
+    });
+
+    $('.td2').hover(function () {
+        $('.td2').empty();
+        $('.td2').text('.')
+    }, function () {
+        $('.td2').empty();
+        $('.td2').text('2')
+    });
+
+    $('.td3').hover(function () {
+        $('.td3').empty();
+        $('.td3').text('%')
+    }, function () {
+        $('.td3').empty();
+        $('.td3').text('3')
+    });
+
+    $('.td4').hover(function () {
+        $('.td4').empty();
+        $('.td4').text('&')
+    }, function () {
+        $('.td4').empty();
+        $('.td4').text('4')
+    });
+
+    $('.td5').hover(function () {
+        $('.td5').empty();
+        $('.td5').text('(')
+    }, function () {
+        $('.td5').empty();
+        $('.td5').text('5')
+    });
+
+    $('.td6').hover(function () {
+        $('.td6').empty();
+        $('.td6').text('@')
+    }, function () {
+        $('.td6').empty();
+        $('.td6').text('6')
+    });
+
+    $('.td7').hover(function () {
+        $('.td7').empty();
+        $('.td7').text('$')
+    }, function () {
+        $('.td7').empty();
+        $('.td7').text('7')
+    });
+
+    $('.td8').hover(function () {
+        $('.td8').empty();
+        $('.td8').text('^')
+    }, function () {
+        $('.td8').empty();
+        $('.td8').text('8')
+    });
+
+    $('.td9').hover(function () {
+        $('.td9').empty();
+        $('.td9').text('*')
+    }, function () {
+        $('.td9').empty();
+        $('.td9').text('9')
+    });
+
+</script>
+
+</html>

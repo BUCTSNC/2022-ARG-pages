@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap');
+
+.gab_new {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999999;
+}
+
+.gab_new:hover {
+    color: #24252A;
+}
+
+#btn_appear {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+}
+
+#btn_disappear {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+}
+
+.day4_setting {
+    height: 20px;
+    width: 20px;
+    background: none;
+}
+
+.answer_div {
+    height: 350px;
+    width: 650px;
+    border: #0088A9 solid;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#goToPC {
+    z-index: 999;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    color: white;
+    background: none;
+    border-radius: 30px !important;
+    border: none !important;
+}
+
+.flush_container {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 99999999;
+}
+
+.flush {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+}
+

@@ -1,0 +1,142 @@
+
+.code_window { 
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: none;
+}
+
+.code_window_title {
+    height: 20px;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.window_close {
+    background-color: red;
+    border: red solid;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 8px;
+    margin-right: 6px;
+}
+
+.window_max {
+    background-color: rgb(73, 253, 73);
+    border: rgb(73, 253, 73) solid;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 6px;
+}
+
+.window_min {
+    background-color: orange;
+    border: orange solid;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.code_block {
+    background-color: rgb(23, 21, 21);
+    margin: 0;
+    border: grey solid;
+    font-family: Consolas, sans-serif;
+    padding: 10px 20px 10px 20px;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.code_block p{
+    background-color: rgb(23, 21, 21);
+    margin: 3px 0 3px 0;
+    font-size: 24px;
+}
+
+.table_class {
+    margin-left: 13px;
+    margin-bottom: 5px;
+    background: none;
+    font-family: Consolas, sans-serif;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.table_class td {
+    background: rgb(23, 21, 21);
+    text-align: center;
+    cursor: pointer;
+}
+
+.table_class td tr {
+    background: none;
+    margin: 0;
+    cursor: pointer;
+}
+
+.ee {
+    background: rgb(23, 21, 21);
+    color: white;
+    font-size: 24px;
+}
+
+.ee_div {
+    display: flex;
+    flex-direction: row;
+    background: rgb(23, 21, 21);
+}
+
+#file_trans_input {
+    background: rgb(23, 21, 21);
+}
+
+#file_trans_output {
+    background: rgb(23, 21, 21);
+}
+
+.code_block_output {
+    background: rgb(23, 21, 21);
+}
+
+.plot {
+    width: 820px !important;
+}
+
+.plot_content p{
+    font-size: 18px !important;
+}
+
+.plot_content {
+    background: rgb(23, 21, 21);
+
+}
+
+.monologue {
+    width: 900px !important;
+}
+
+.monologue_content {
+    background: rgb(23, 21, 21);
+
+}
+
+.monologue_content p {
+    font-size: 18px !important;
+}
+
+
+
+
+
+
+
+
+
