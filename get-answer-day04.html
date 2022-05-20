@@ -76,7 +76,7 @@
 
                 <p>“现在，你已被矩阵选中机会仅有一次，是否要参与转换？”</p>
 
-                <p>“...是”</p>
+                <p>“我......”</p>
             </div>
             <div id="output" style="background-color: rgb(23, 21, 21) !important;"></div>
         </div>
@@ -123,8 +123,8 @@
         }
     }
 
-    function check(nickname, contact, answer_q3) {
-        if(nickname.length < 1 || contact.length < 10 || answer_q3.length < 1){
+    function check(nickname, contact, answer_q4) {
+        if(nickname.length < 1 || contact.length < 10 || answer_q4.length < 1){
             return false;
         }
         return true;
@@ -135,8 +135,8 @@
         let answer_q4 = document.getElementById("answer_q4")
         if(check(nickname.value, contact.value, answer_q4.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
             $.ajax({
-                url:"https://sncdeveloper.cn:8000/argProject/day03",
-                // url:"http://127.0.0.1:8000/ARG/day03",
+                url:"https://sncdeveloper.cn:8000/argProject/day04",
+                // url:"http://127.0.0.1:8000/ARG/day04",
                 method:"post",
                 async:"false",
                 data:{"nickname":nickname.value,"contact":contact.value,"answer_q4":answer_q4.value},
@@ -147,8 +147,7 @@
                     contact.value = ""
                     answer_q4.value = ""
                     window.alert(result.msg)
-                    if(result.data.solveStatus=="####"){ //不做成功提交后的打字机效果
-
+                    if(result.data.solveStatus==1){
                         onClick();
                     }
                 },
