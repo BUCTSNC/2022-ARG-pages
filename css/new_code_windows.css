@@ -91,6 +91,12 @@
     color: #101216;
     font-family: Consolas, sans-serif;
     font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.window_btn:hover {
+    color: #c8ccd3;
 }
 
 .code_window_show_plot {
