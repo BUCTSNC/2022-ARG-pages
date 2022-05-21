@@ -54,7 +54,7 @@
 
 
 
-    <div id="goToPC" style="display: none; font-size: 14px;">
+    <div id="goToPC" style="display: block; font-size: 14px;">
         <div class="go_to_PC_content">
             <img src="img/goToPC.png" alt="" class="go_to_PC_img">
             <p style="background: none">在PC端访问</p>
@@ -172,10 +172,15 @@
         }
         $('.navigate').fadeIn(500);
         $('.code_submit_window').fadeIn(700);
-
     }
 
 
+
+    $(document).keyup(function(e){  
+        if (13 == e.keyCode || 108 == e.keyCode){
+            submits();
+        }
+    }); 
 
 
 
