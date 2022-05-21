@@ -208,7 +208,7 @@
     color: #101216;
     font-family: Consolas, sans-serif;
     font-size: 15px;
-    margin: 5px 15px 20px 10px;
+    margin: 5px 70px 20px 70px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
@@ -219,6 +219,9 @@
 
 .window_submit_btn {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
