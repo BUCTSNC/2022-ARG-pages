@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.code_window {
+    /*border-top: #757575 solid 1px;*/
+    /*border-left: #757575 solid 1px;*/
+    /*border-right: #757575 solid 1px;*/
+    left: 50px;
+    top: 150px;
+    position: absolute;
+    font-family: Consolas, sans-serif;
+    color: #8f98a8;
+    border: #202228 solid 1px;
+    border-radius: 7px;
+}
+
+.code_window_input {
+    /*border-top: #757575 solid 1px;*/
+    /*border-left: #757575 solid 1px;*/
+    /*border-right: #757575 solid 1px;*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-family: Consolas, sans-serif;
+    color: #3079cb;
+    border: #202228 solid 1px;
+    border-radius: 7px;
+    z-index: 9999999999999999;
+}
+
+.window_title {
+    background: #101216;
+    height: 40px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.window_close {
+    height: 13px;
+    width: 13px;
+    background: #fa0200;
+    border-radius: 50%;
+    margin: 0 7px 0 15px;
+    cursor: pointer;
+}
+
+.window_min {
+    height: 13px;
+    width: 13px;
+    background: #fabb2f;
+    border-radius: 50%;
+    margin: 0 7px 0 0 ;
+    cursor: pointer;
+
+}
+
+.window_max {
+    height: 13px;
+    width: 13px;
+    background: #2aca42;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.window_main {
+    background: #101216;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    padding: 20px 20px 20px 20px;
+}
+
+.window_btn {
+    margin-left: 15px;
+    height: 33px;
+    width: 50px;
+    border-radius: 7px;
+    background: #3079cb;
+    color: #101216;
+    font-family: Consolas, sans-serif;
+    font-size: 16px;
+}
+
+.code_window_show_plot {
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    position: absolute;
+    font-family: Consolas, sans-serif;
+    color: #3079cb;
+    border: #202228 solid 1px;
+    border-radius: 7px;
+    z-index: 99999999;
+    margin: 100px 0 100px 0;
+}
+
+.window_show_plot_main {
+    background: #101216;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    padding: 20px 20px 20px 20px;
+}
+
+.window_show_plot_title {
+    background: #101216;
+    height: 40px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.window_show_plot_main p {
+    margin: 0 7px 10px 7px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+#plot_output {
+    background: #101216;
+}
+
+#plot_input {
+    background: #101216;
+}
+
+.code_submit_window {
+    left: 50%;
+    top: 200px;
+    transform: translateX(-50%);
+    position: absolute;
+    font-family: Consolas, sans-serif;
+    color: #3079cb;
+    border: #202228 solid 1px;
+    border-radius: 7px;
+    z-index: 99999999;
+    margin: 100px 0 100px 0;
+}
+
+.window_submit_title {
+    background: #101216;
+    height: 40px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.window_submit_main {
+    background: #101216;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    padding: 20px 20px 20px 20px;
+}
+
+.new_submit_form {
+    position: relative;
+    margin: auto;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+.new_submit_form tr {
+    height: 40px;
+}
+
+.new_submit_form td {
+    padding: 10px;
+}
+
+.new_submit_form a {
+    text-decoration: none;
+    color: #3079cb;
+}
+
+.submit_btn {
+    border-radius: 7px;
+    height: 40px;
+    width: 100px;
+    background: #3079cb;
+    color: #101216;
+    font-family: Consolas, sans-serif;
+    font-size: 15px;
+    margin: 5px 15px 20px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.submit_btn:hover {
+    color: #c8ccd3;
+}
+
+.window_submit_btn {
+    margin-top: 10px;
+}
+
+
+
