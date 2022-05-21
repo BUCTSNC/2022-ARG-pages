@@ -839,7 +839,7 @@
                     </td>
 
                     <td>
-                        <button id="day05_start" class="window_btn">Go</button>
+                        <button id="day05_start" class="window_btn" onclick="submits()">Go</button>
                     </td>
                 </tr>
             </table>
@@ -890,8 +890,43 @@
         $('.code_window_input').fadeIn(700);
 
     }
+    function isLegalTel(str) {
+        let re = /^[0-9|+]*$/;
+        if (!re.test(str) || str.indexOf(" ") != -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
-
+    function submits() {
+        var contact = document.getElementById("contact")
+        console.log("submit success")
+        if (isLegalTel(contact.value) && contact.value.length >= 10) {
+            $.ajax({
+                url:"https://sncdeveloper.cn:8000/argProject/day05_Judge",
+                // url: "http://127.0.0.1:8000/ARG/day05_Judge",
+                method: "post",
+                async: "false",
+                data: {"contact": contact.value},
+                dataType: "json",
+                contentType: "application/x-www-form-urlencoded",
+                success(result) {
+                    contact.value = ""
+                    window.alert(result.msg)
+                    if (result.data.solveStatus == 1) {
+                        window.location.href = result.data.jmpUrl;
+                    }
+                },
+                error(msg) {
+                    console.log("error" + msg)
+                    window.alert("活动太火爆了，请稍后再试")
+                }
+            })
+        } else {
+            alert("联系方式格式有误或答案为空，请重新输入")
+        }
+    }
 
 </script>
 </html>

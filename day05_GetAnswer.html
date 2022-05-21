@@ -111,8 +111,8 @@
         }
     }
 
-    function check(nickname, contact, answer_q4) {
-        if(nickname.length < 1 || contact.length < 10 || answer_q4.length < 1){
+    function check(nickname, contact, answer_q5) {
+        if(nickname.length < 1 || contact.length < 10 || answer_q5.length < 1){
             return false;
         }
         return true;
@@ -123,28 +123,30 @@
         } else {
             let nickname = document.getElementById("nickname")
             let contact = document.getElementById("contact")
-            let answer_q4 = document.getElementById("answer_q4")
-            if(check(nickname.value, contact.value, answer_q4.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
+            let answer_q5 = document.getElementById("answer_q5")
+            if(check(nickname.value, contact.value, answer_q5.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
                 $.ajax({
-                    url:"https://sncdeveloper.cn:8000/argProject/day04",
-                    // url:"http://127.0.0.1:8000/ARG/day04",
+                    url:"https://sncdeveloper.cn:8000/argProject/day05",
+                    // url:"http://127.0.0.1:8000/ARG/day05",
                     method:"post",
                     async:"false",
-                    data:{"nickname":nickname.value,"contact":contact.value,"answer_q4":answer_q4.value},
+                    data:{"nickname":nickname.value,"contact":contact.value,"answer_q5":answer_q5.value},
                     dataType:"json",
                     contentType:"application/x-www-form-urlencoded",
                     success(result){
                         nickname.value = ""
                         contact.value = ""
-                        answer_q4.value = ""
+                        answer_q5.value = ""
                         window.alert(result.msg)
-                        if(result.data.solveStatus==1){
-
-                        }
+                        // if(result.data.solveStatus==1){
+                        //
+                        // }
+                        submit = false
                     },
                     error(msg){
                         console.log("error"+msg)
                         window.alert("活动太火爆了，请稍后再试")
+                        submit = false
                     }
                 })
             }else{
@@ -152,6 +154,7 @@
                     alert("用户名只能由数字和字母组成！");
                 else
                     alert("联系方式格式有误或答案为空，请重新输入")
+                submit = false
             }
         }
     }
