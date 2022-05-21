@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/new_code_windows.css">
     <link rel="stylesheet" type="text/css" href="css/new_nav.css">
-    <link rel="stylesheet" type="text/css" href="css/day_4_index.css">
+    <link rel="stylesheet" type="text/css" href="css/day_5_index.css">
+    <link rel="stylesheet" type="text/css" href="css/go_to_PC.css">
     <title>Day 5</title>
 </head>
 <script src="js/jquery.js"></script>
@@ -986,9 +987,31 @@
     </div>
 
 
+    <div id="goToPC" style="display: none; font-size: 14px;">
+        <div class="go_to_PC_content">
+            <img src="img/goToPC.png" alt="" class="go_to_PC_img">
+            <p style="background: none">在PC端访问</p>
+            <p style="background: none">体验效果更佳</p>
+        </div>
+
+    </div>
+
 
 </body>
 <script>
+
+    function checkDevice() {
+        let usrAgentInfo = navigator.userAgent;
+        let Agents = ['Android', 'iPhone', 'Windows Phone', 'iPad'];
+        let flag = true;
+        for (let i = 0; i < Agents.length; i++) {
+            if (usrAgentInfo.indexOf(Agents[i]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
 
     var source = document.getElementById('plot_input');
     var output = document.getElementById('plot_output');
@@ -1003,6 +1026,12 @@
 
     var randPos = new randomPosition('.code_window', 130, 1000, 10, 1200);
     window.onload = function () {
+        if (!checkDevice()) {
+            $('#goToPC').fadeIn()
+            setTimeout(function () {
+                $('#goToPC').fadeOut();
+            }, 1000)
+        }
         for(let i = 0; i < randPos.codeWindows.length; i++) {
             randPos.appear();
         }
