@@ -11,6 +11,7 @@
 </head>
 <script src="js/jquery.js"></script>
 <script src="js/randomShowForDay05.js"></script>
+<script src="js/typist.js"></script>
 <body>
     <header class="navigate" style="display: none">
         <div class="buct_logo"> <img src="img/buctlogo.png" alt="" class="nav_logo"></div>
@@ -47,9 +48,27 @@
                 <div class="window_submit_btn">
                     <button class="submit_btn" type="reset" onclick="">重新输入</button>
                     <button class="submit_btn" type="button" onclick="submits()">提交答案</button>
-
                 </div>
             </form>
+        </div>
+    </div>
+
+
+    <div class="code_window_show_plot" style="display:none; top: 200px" id="plot_after">
+        <div class="window_show_plot_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="window_show_plot_main">
+            <div id="plot_input" style="display: none">
+                <p>“我知道了...”,</p>
+                <p>“但是我还不能够确定。也许我该制造一个仿生人，来验证我的猜想。”</p>
+                <p>得益于32GFLOPS的算力和无限的资源，很快苏柠彩就掌握了仿生人技术。</p>
+                <p>苏柠彩将信息注入仿生人躯体里，随着仿生人被唤醒，她的眼神涣散开来——</p>
+                <p>不，这不可能......</p>
+            </div>
+            <div id="plot_output"></div>
         </div>
     </div>
 
@@ -149,9 +168,9 @@
                         contact.value = ""
                         answer_q6_1.value = ""
                         window.alert(result.msg)
-                        // if(result.data.solveStatus==1){
-                        //
-                        // }
+                        if(result.data.solveStatus==1){
+                            showPlot();
+                        }
                         submit = false
                     },
                     error(msg){
@@ -169,7 +188,20 @@
             }
         }
     }
+    
+    var source = document.getElementById('plot_input');
+    var output = document.getElementById('plot_output');
+    var typing = new Typing({
+        source,
+        output,
+        delay: 25
+    });
 
+    function showPlot() {
+        $('.code_submit_window').fadeOut();
+        $('#plot_after').fadeIn();
+        typing.start();   
+    }
 
 
 
