@@ -136,11 +136,10 @@
             let answer_q6_2 = document.getElementById("answer_q6_2")
             if(check(nickname.value, contact.value, answer_q6_2.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
                 $.ajax({
-                    url:"https://sncdeveloper.cn:8000/argProject/day05",
-                    // url:"http://127.0.0.1:8000/ARG/day05",
+                    url:"https://sncdeveloper.cn:8000/argProject/day06",
                     method:"post",
                     async:"false",
-                    data:{"nickname":nickname.value,"contact":contact.value,"answer_q6_2":answer_q6_2.value},
+                    data:{"nickname":nickname.value,"contact":contact.value,"answer_q6":answer_q6_2.value},
                     dataType:"json",
                     contentType:"application/x-www-form-urlencoded",
                     success(result){

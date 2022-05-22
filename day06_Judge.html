@@ -904,7 +904,7 @@
         console.log("submit success")
         if (isLegalTel(contact.value) && contact.value.length >= 10) {
             $.ajax({
-                url:"https://sncdeveloper.cn:8000/argProject/day05_Judge",
+                url:"https://sncdeveloper.cn:8000/argProject/day06_Judge",
                 // url: "http://127.0.0.1:8000/ARG/day05_Judge",
                 method: "post",
                 async: "false",
@@ -914,7 +914,7 @@
                 success(result) {
                     contact.value = ""
                     window.alert(result.msg)
-                    if (result.data.solveStatus == 1) {
+                    if (result.data.solveStatus >= 1) {
                         window.location.href = result.data.jmpUrl;
                     }
                 },

@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>获得的答案：</td>
-                        <td><input id="answer_q6_1" name="answer_q6_1" type="text" placeholder="Day 6答案" autocomplete="off" class="day05_input"></td>
+                        <td><input id="answer_q6" name="answer_q6" type="text" placeholder="Day 6答案" autocomplete="off" class="day05_input"></td>
                         <td>没有找到？<a href="#" id="back_to_phone">返回</a> </td>
                     </tr>
                 </table>
@@ -122,8 +122,8 @@
         }
     }
 
-    function check(nickname, contact, answer_q6_1) {
-        if(nickname.length < 1 || contact.length < 10 || answer_q6_1.length < 1){
+    function check(nickname, contact, answer_q6) {
+        if(nickname.length < 1 || contact.length < 10 || answer_q6.length < 1){
             return false;
         }
         return true;
@@ -134,24 +134,23 @@
         } else {
             let nickname = document.getElementById("nickname")
             let contact = document.getElementById("contact")
-            let answer_q6_1 = document.getElementById("answer_q6_1")
-            if(check(nickname.value, contact.value, answer_q6_1.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
+            let answer_q6 = document.getElementById("answer_q6")
+            if(check(nickname.value, contact.value, answer_q6.value) && isLegalName(nickname.value) && isLegalTel(contact.value)){
                 $.ajax({
-                    url:"https://sncdeveloper.cn:8000/argProject/day05",
-                    // url:"http://127.0.0.1:8000/ARG/day05",
+                    url:"https://sncdeveloper.cn:8000/argProject/day06",
                     method:"post",
                     async:"false",
-                    data:{"nickname":nickname.value,"contact":contact.value,"answer_q6_1":answer_q6_1.value},
+                    data:{"nickname":nickname.value,"contact":contact.value,"answer_q6":answer_q6.value},
                     dataType:"json",
                     contentType:"application/x-www-form-urlencoded",
                     success(result){
                         nickname.value = ""
                         contact.value = ""
-                        answer_q6_1.value = ""
+                        answer_q6.value = ""
                         window.alert(result.msg)
-                        // if(result.data.solveStatus==1){
-                        //
-                        // }
+                        if(result.data.solveStatus==1){
+                            //请在此写打字机效果
+                        }
                         submit = false
                     },
                     error(msg){
