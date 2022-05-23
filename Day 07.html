@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/new_code_windows.css">
+    <link rel="stylesheet" type="text/css" href="css/new_nav.css">
+    <link rel="stylesheet" type="text/css" href="css/day_7_index.css">
+    <link rel="stylesheet" type="text/css" href="css/go_to_PC.css">
+    <link rel="stylesheet" type="text/css" href="css/bubble.css">
+    <meta charset="UTF-8">
+    <title>Day 7</title>
+</head>
+<script src="js/jquery.js"></script>
+<script src="js/typist.js"></script>
+<body>
+    <header class="navigate" style="display: none">
+        <div class="buct_logo"> <img src="img/buctlogo.png" alt="" class="nav_logo"></div>
+        <div class="snc_logo"> <img src="img/snclogo.png" alt="" class="nav_logo"></div>
+    </header>
+
+
+
+    <div class="code_chat_window" style="display:none;" id="window1">
+        <div class="window_chat_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="window_chat_main" style="display: block" id="input_plot">
+            <p>A: “喂，你怎么又在实验室睡着了呀？”</p>
+            <p>A: “你不会把这个仿真程序跑过夜了吧，这可是违规操作！还不快去看看运行数据”</p>
+            <p>B: “我*，我忘了看了！我马上去关了去”</p>
+            <p>B: “糟糕，这次的实验怎么自动运算9个周期了，可不能让其他人知道。”</p>
+            <p>B: “唉，又失败了”</p>
+            <p>B: “嗯？怎么会这样？”</p>
+            <div style="cursor:pointer;" onclick="window2Show()">=========================></div>
+        </div>
+        <div id="output_plot"></div>
+    </div>
+
+
+    <div class="code_chat_window" style="display:none;" id="window2">
+        <div class="window_chat_title">
+            <div class="window_close"></div>
+            <div class="window_min"></div>
+            <div class="window_max"></div>
+        </div>
+        <div class="window_chat_main" id="que_main">
+            <div id="que_input" style="display: none">
+                <p>数据修复成功，正在准备第十次重启</p>
+            </div>
+            <div id="que_output"></div>
+            <div class="window_chat_btn" style="display: none" id="que_btn">
+                <input type="button" value="确定" id="yes" class="chat_btn" name="yes" onmouseover="yesTurnNo()">
+                <input type="button" value="取消" id="no" class="chat_btn" name="no" onmouseover="noTurnYes()">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="goToPC" style="display: none; font-size: 14px;">
+        <div class="go_to_PC_content">
+            <img src="img/goToPC.png" alt="" class="go_to_PC_img">
+            <p style="background: none">在PC端访问</p>
+            <p style="background: none">体验效果更佳</p>
+        </div>
+    </div>
+
+
+    <div id="goToWeChat" style="display: none; font-size: 14px;">
+        <div class="go_to_PC_content">
+            <img src="img/goToPhone.png" alt="" class="go_to_PC_img">
+            <p style="background: none">请回到微信推送中</p>
+            <p style="background: none">寻找有关线索</p>
+        </div>
+
+    </div>
+
+</body>
+<script>
+
+    function checkDevice() {
+        let usrAgentInfo = navigator.userAgent;
+        let Agents = ['Android', 'iPhone', 'Windows Phone', 'iPad'];
+        let flag = true;
+        for (let i = 0; i < Agents.length; i++) {
+            if (usrAgentInfo.indexOf(Agents[i]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    var submit = false;
+    function checkSubmit() {
+        if(!submit) {
+            // 表单提交后设置标志位
+            submit = true;
+            return true;
+        }
+        // 表单已经提交，不允许再次提交
+        console.log("请不要重复提交表单！");
+        return false;
+    }
+
+
+
+
+
+
+
+
+    window.onload = function () {
+        var src = document.getElementById("input_plot");
+        var des = document.getElementById("output_plot");
+        var typingWindow1 = new Typing({
+            src,
+            des,
+            delay: 20
+        })
+        if (!checkDevice()) {
+            $('#goToPC').fadeIn()
+            setTimeout(function () {
+                $('#goToPC').fadeOut();
+            }, 1000)
+        }
+        $('.navigate').fadeIn(500);
+        $('#window1').fadeIn(700);
+
+        setTimeout(function () {
+            typingWindow1.start()
+        }, 200)
+    }
+
+    // var backToPhone = document.getElementById('back_to_phone');
+    // backToPhone.addEventListener('click', function() {
+    //     $('#goToWeChat').fadeIn();
+    //     setTimeout(function() {
+    //         $('#goToWeChat').fadeOut();
+    //     }, 1000)
+    // })
+
+
+
+
+
+    function window2Show() {
+        var source = document.getElementById('que_input');
+        var output = document.getElementById('que_output');
+        var window2Typing = new Typing({
+            source,
+            output,
+            delay: 30
+        });
+
+        $('#window1').fadeOut();
+        $('#window2').fadeIn();
+
+        setTimeout(function (){
+            window2Typing.start();
+            setTimeout(function () {
+                $('#que_btn').css({'display': 'block'});
+            }, 1200)
+        }, 200)
+
+    }
+
+    function inputCode() {
+        $('#que_main').empty();
+        var titleLine = "<h3 style='display: none' id='titleLine'>请输入口令来取消修复</h3>"
+        var line1 = "<input placeholder='取消重启口令' class='day05_input' id='line1' style='display: none; margin-top: 20px'>"
+        var line2 = "<div class=\"window_chat_btn\" style=\"display: none\" id=\"line2\"> <input type=\"button\" value=\"确定\" id=\"yes\" class=\"chat_btn\" onclick='afterSubmit()'> <input type=\"button\" value=\"取消\" id=\"no\" class=\"chat_btn\" onclick='back()'> </div>"
+        $('#que_main').append(titleLine, line1, line2);
+        $('#line1').fadeIn();
+        $('#line2').fadeIn();
+
+        $('#titleLine').fadeIn();
+    }
+
+    function back() {
+        $('#que_main').empty();
+        var line1 = '<div id="line1" style="display: none"><p>数据修复成功，正在准备第十次重启</p></div>'
+        var line2 = '<div class="window_chat_btn" style="display: none" id="line2"><input type="button" value="确定" id="yes" class="chat_btn" name="yes" onMouseOver="yesTurnNo()" onclick="inputCode()"><input type="button" value="取消" id="no" class="chat_btn" name="no" onMouseOver="noTurnYes()" onclick="inputCode()"></div>'
+        $('#que_main').append(line1, line2);
+        $('#line1').fadeIn();
+        $('#line2').fadeIn();
+    }
+
+    function yesTurnNo() {
+        var yes = document.getElementById("yes");
+        var no = document.getElementById("no");
+        yes.value = '取消';
+        no.value = '确定';
+    }
+
+    function noTurnYes() {
+        var no = document.getElementById("yes");
+        var yes = document.getElementById("no");
+        yes.value = '取消';
+        no.value = '确定';
+    }
+
+
+    document.getElementById('no').addEventListener('click', function () {
+        inputCode();
+    })
+    document.getElementById('yes').addEventListener('click', function () {
+        inputCode();
+    })
+
+
+
+    function afterSubmit() {
+        $('#que_main').empty();
+
+        var line1 = '<p style="display: none" id="line1">口令错误，第十次重启将在下一指令周期继续。</p>'
+        $("#que_main").append(line1);
+        $('#line1').fadeIn();
+
+
+       setTimeout(function () {
+           $('#que_main').empty();
+
+           var line2 = '<p style="display: none" id="line2">“各位观众朋友大家好，这里是上京人民广播电台，今天的早间新闻内容主要有……”</p>';
+           var line3 = '<p style="display: none" id="line3">与此同时</p>'
+           var line4 = '<p style="display: none" id="line4">Start Rebooting ...</p>'
+           var line5 = '<p style="display: none" id="line5">..........</p>'
+           $("#que_main").append(line2, line3, line4, line5);
+
+           setTimeout(function (){$('#line2').fadeIn()}, 100)
+           setTimeout(function (){$('#line3').fadeIn()}, 800)
+           setTimeout(function (){$('#line4').fadeIn()}, 1500)
+           setTimeout(function (){$('#line5').fadeIn()}, 2000)
+
+           // setTimeout(function () {
+           //      window.location.href = ""    // 如有跳转连接，再次添加
+           //
+           // }, 5000)
+
+       }, 2000)
+    }
+
+
+</script>
+
+</html>

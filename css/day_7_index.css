@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgba(31, 34, 42, 0.96);
+}
+
+.day05_input {
+    width: 270px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 15px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #1f262a;
+    color: #3079cb;
+    outline: 0;
+    padding-left: 10px;
+    background: #2f3342;
+}
+.day05_input::placeholder {
+    color: rgba(48, 121, 203, 0.5)
+}
